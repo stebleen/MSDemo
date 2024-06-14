@@ -1,0 +1,10 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\bin\Debug\netcoreapp3.1\MS.Component.Aop.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\bin\Debug\netcoreapp3.1\MS.Component.Aop.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\bin\Debug\netcoreapp3.1\MS.Component.Aop.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Aop\obj\Debug\netcoreapp3.1\MS.Component.Aop.pdb

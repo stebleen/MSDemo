@@ -1,0 +1,244 @@
+2024-06-13 22:25:09.6783 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 22:34:20.4109 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 22:37:03.0566 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 23:11:46.4503 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 23:16:32.2734 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 23:26:32.3431 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 23:28:31.3007 | Fatal | MS.WebApi.Program | 网站启动失败 System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 657
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.<>c__DisplayClass18_0.<Exists>b__0(DateTime giveUp)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.<>c__DisplayClass12_0`2.<Execute>b__0(DbContext c, TState s)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation, Func`2 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.ExecutionStrategyExtensions.Execute[TState,TResult](IExecutionStrategy strategy, TState state, Func`2 operation)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists(Boolean retryOnNotExists)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlDatabaseCreator.Exists()
+   at Microsoft.EntityFrameworkCore.Storage.RelationalDatabaseCreator.EnsureCreated()
+   at Microsoft.EntityFrameworkCore.Infrastructure.DatabaseFacade.EnsureCreated()
+   at MS.WebApi.DBSeed.Initialize(IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Initialize\DBSeed.cs:line 21
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 37 
+ Program.Main 
+
+2024-06-13 23:29:41.0758 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:29:41.1838 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:29:41.4440 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:32:21.3238 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:32:21.4458 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:32:21.6174 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:37:49.4162 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:37:49.8310 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:37:49.9964 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:40:42.6803 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:40:42.7970 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:40:42.8706 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:42:20.8883 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:42:21.0125 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:42:21.1685 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:43:10.6787 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:43:10.7646 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:43:11.1476 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:44:17.6193 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:44:18.0344 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:44:18.1225 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:46:24.0085 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:46:24.1025 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:46:24.1808 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-13 23:47:32.7110 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-13 23:47:32.8935 | Error | MS.WebApi.Program | Test For Error 
+2024-06-13 23:47:32.9817 | Fatal | MS.WebApi.Program | Test For Fatal 

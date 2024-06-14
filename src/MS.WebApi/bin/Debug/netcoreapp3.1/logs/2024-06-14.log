@@ -1,0 +1,909 @@
+2024-06-14 00:24:56.9328 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 00:24:57.0330 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 00:24:57.1032 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 00:28:40.1564 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 00:28:40.2497 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 00:28:40.3345 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 00:29:40.1495 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 00:29:40.2554 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 00:29:40.6359 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 00:30:03.4979 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 645
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at MS.UnitOfWork.Repository`1.Exists(Expression`1 predicate) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 516
+   at MS.Models.ViewModel.RoleViewModel.CheckField(ExecuteType executeType, IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.Models\ViewModel\RoleViewModel.cs:line 35
+   at MS.Services.RoleService.Update(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 62
+   at MS.WebApi.Controllers.RoleController.Put(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 30
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 00:31:36.5744 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 00:31:36.9801 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 00:31:37.0704 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 00:34:12.1055 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 00:34:44.8107 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 00:34:51.2394 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 00:45:13.6341 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 00:45:13.7428 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 00:45:13.8198 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 00:58:39.4444 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 645
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at MS.UnitOfWork.Repository`1.Exists(Expression`1 predicate) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 516
+   at MS.Models.ViewModel.RoleViewModel.CheckField(ExecuteType executeType, IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.Models\ViewModel\RoleViewModel.cs:line 35
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 49
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 01:00:29.0882 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 01:00:29.2045 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 01:00:29.5860 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 01:04:20.3075 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 01:04:20.4285 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 01:04:20.5100 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 01:05:07.4127 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 01:05:07.5303 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 01:05:07.8186 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 01:09:36.9199 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 01:09:36.9771 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 01:09:37.0082 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 01:10:01.4964 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:05:41.9870 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:05:42.0373 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:05:42.0654 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:10:12.5476 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidOperationException: An exception has been raised that is likely due to a transient failure. Consider enabling transient error resiliency by adding 'EnableRetryOnFailure()' to the 'UseMySql' call.
+ ---> MySql.Data.MySqlClient.MySqlException (0x80004005): Connect Timeout expired.
+ ---> System.ObjectDisposedException: Cannot access a disposed object.
+Object name: 'System.Net.Sockets.Socket'.
+   at System.Net.Sockets.Socket.Connect(EndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPEndPoint remoteEP)
+   at System.Net.Sockets.TcpClient.Connect(IPAddress address, Int32 port)
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 880
+   at MySqlConnector.Core.ServerSession.OpenTcpSocketAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken)
+   at MySqlConnector.Core.ServerSession.ConnectAsync(ConnectionSettings cs, ILoadBalancer loadBalancer, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ServerSession.cs:line 338
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 112
+   at MySqlConnector.Core.ConnectionPool.GetSessionAsync(MySqlConnection connection, IOBehavior ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\Core\ConnectionPool.cs:line 141
+   at MySql.Data.MySqlClient.MySqlConnection.CreateSessionAsync(ConnectionPool pool, Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 645
+   at MySql.Data.MySqlClient.MySqlConnection.OpenAsync(Nullable`1 ioBehavior, CancellationToken cancellationToken) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 312
+   at MySql.Data.MySqlClient.MySqlConnection.Open() in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlConnection.cs:line 280
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.OpenDbConnection(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalConnection.Open(Boolean errorsExpected)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlRelationalConnection.Open(Boolean errorsExpected)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReader(RelationalCommandParameterObject parameterObject)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.InitializeReader(DbContext _, Boolean result)
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   --- End of inner exception stack trace ---
+   at Pomelo.EntityFrameworkCore.MySql.Storage.Internal.MySqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.Single[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.Any[TSource](IQueryable`1 source, Expression`1 predicate)
+   at MS.UnitOfWork.Repository`1.Exists(Expression`1 predicate) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 516
+   at MS.Models.ViewModel.RoleViewModel.CheckField(ExecuteType executeType, IUnitOfWork`1 unitOfWork) in D:\program\dotnet\code\final\MSDemo\src\MS.Models\ViewModel\RoleViewModel.cs:line 60
+   at MS.Services.RoleService.Create(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 25
+   at MS.WebApi.Controllers.RoleController.Post(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 25
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:11:57.8499 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:11:57.9015 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:11:57.9282 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:12:56.3527 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:26:45.9837 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:26:46.0389 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:26:46.0694 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:26:53.5556 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:29:30.4809 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:29:30.6424 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:29:30.6642 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:30:02.0919 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:31:13.6005 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:33:17.4102 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:33:17.4856 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:33:17.5166 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:35:28.9866 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:35:29.0446 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:35:29.0750 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:36:18.8921 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:36:18.9493 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:36:18.9734 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:36:23.3040 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 53
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:39:45.8634 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:39:45.9164 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:39:45.9449 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:39:51.5296 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\Core\Row.cs:line 248
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in C:\projects\mysqlconnector\src\MySqlConnector\MySql.Data.MySqlClient\MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 54
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 10:40:13.0315 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:40:13.1000 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:40:13.1339 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:43:12.9831 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:43:13.0409 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:43:13.0696 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:51:56.6613 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:51:56.7341 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:51:56.7572 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:59:12.7046 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 10:59:12.7576 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 10:59:12.7831 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 10:59:17.1884 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.ArgumentException: The key value at position 0 of the call to 'DbSet<Role>.Find' was of type 'ValueTask<Role>', which does not match the property type of 'long'.
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.FindTracked(Object[] keyValues, IReadOnlyList`1& keyProperties)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 55
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:04:53.7650 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:04:53.8141 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:04:53.8421 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:04:58.6528 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.ArgumentException: The key value at position 0 of the call to 'DbSet<Role>.Find' was of type 'ValueTask<Role>', which does not match the property type of 'long'.
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.FindTracked(Object[] keyValues, IReadOnlyList`1& keyProperties)
+   at Microsoft.EntityFrameworkCore.Internal.EntityFinder`1.Find(Object[] keyValues)
+   at Microsoft.EntityFrameworkCore.Internal.InternalDbSet`1.Find(Object[] keyValues)
+   at MS.UnitOfWork.Repository`1.Delete(Object id) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 571
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 55
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:16:44.8936 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:16:44.9519 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:16:44.9758 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:17:16.2364 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:17:16.2933 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:17:16.3172 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:25:07.3069 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:25:07.3517 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:25:07.3820 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:25:12.5092 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:25:39.8439 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:25:39.8989 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:25:39.9309 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:26:12.9542 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:26:13.0000 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:26:13.0281 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:26:33.8268 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:26:33.8838 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:26:33.9088 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:26:37.9239 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:29:21.7114 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:29:48.1993 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:30:04.8236 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:30:47.2251 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 11:30:47.2784 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 11:30:47.3018 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 11:30:54.8183 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:31:45.5950 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 11:32:06.7129 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.String' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at System.Linq.Enumerable.SingleOrDefault[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source)
+   at MS.Services.RoleService.Delete(RoleViewModel viewModel) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\Role\RoleService.cs:line 56
+   at MS.WebApi.Controllers.RoleController.Delete(Int64 id) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\RoleController.cs:line 36
+   at lambda_method(Closure , Object )
+   at Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable.Awaiter.GetResult()
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.AwaitableObjectResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-14 12:50:27.2821 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 12:50:27.5260 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 12:50:27.5605 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 12:52:14.5306 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 12:52:14.5751 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 12:52:14.6014 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 12:54:24.8731 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 12:54:24.9174 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 12:54:24.9505 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 12:56:18.1107 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 12:56:18.1661 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 12:56:18.1968 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 13:00:20.0753 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 13:00:20.1270 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 13:00:20.1550 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 13:32:59.5615 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 13:32:59.6158 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 13:32:59.6487 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 13:33:02.0884 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 13:33:02.1344 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 13:33:02.1639 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-14 13:33:24.3233 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-14 13:33:24.3743 | Error | MS.WebApi.Program | Test For Error 
+2024-06-14 13:33:24.4016 | Fatal | MS.WebApi.Program | Test For Fatal 

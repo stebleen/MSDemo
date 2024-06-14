@@ -1,0 +1,10 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\bin\Debug\netcoreapp3.1\MS.Common.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\bin\Debug\netcoreapp3.1\MS.Common.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\bin\Debug\netcoreapp3.1\MS.Common.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Common\obj\Debug\netcoreapp3.1\MS.Common.pdb
