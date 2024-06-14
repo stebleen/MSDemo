@@ -26,6 +26,18 @@ namespace MS.DbContexts
             modelBuilder.ApplyConfiguration(new RoleMap());
             modelBuilder.ApplyConfiguration(new UserLoginMap());
             modelBuilder.ApplyConfiguration(new TUserMap());
+            modelBuilder.ApplyConfiguration(new UserMap());
+            modelBuilder.ApplyConfiguration(new AddressMap());
+            modelBuilder.ApplyConfiguration(new AddressBookMap());
+            modelBuilder.ApplyConfiguration(new CategoryMap());
+            modelBuilder.ApplyConfiguration(new DishFlavorMap());
+            modelBuilder.ApplyConfiguration(new DishMap());
+            modelBuilder.ApplyConfiguration(new EmployeeMap());
+            modelBuilder.ApplyConfiguration(new OrderDetailMap());
+            modelBuilder.ApplyConfiguration(new OrdersMap());
+            modelBuilder.ApplyConfiguration(new SetmealDishMap());
+            modelBuilder.ApplyConfiguration(new SetmealMap());
+            modelBuilder.ApplyConfiguration(new ShoppingCartMap());
 
             base.OnModelCreating(modelBuilder);
         }
