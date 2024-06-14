@@ -7,13 +7,13 @@ namespace MS.Entities
 {
     public class User : IEntity
     {
-        public long id { get; set; }
-        public DateTime create_time { get; set; }
-        public string openid { get; set; }  // 微信用户唯一标识
-        public string name { get; set; }
-        public string phone { get; set; }
-        public string sex { get; set; }
-        public string id_number { get; set; }   // 身份证号
-        public string avatar { get; set; }  // 头像
+        public long Id { get; set; }
+        public DateTime CreateTime { get; set; }
+        public string OpenId { get; set; }  // 微信用户唯一标识
+        public string Name { get; set; }
+        public string Phone { get; set; }
+        public string Sex { get; set; }
+        public string IdNumber { get; set; }   // 身份证号
+        public string Avatar { get; set; }  // 头像
     }
 }

@@ -8,16 +8,16 @@ namespace MS.Entities
     public class Dish : IEntity
     {
         // 菜品
-        public long id { get; set; }
-        public long category_id { get; set; }   // 菜品分类id
-        public string name { get; set; }   
-        public decimal price { get; set; }  
-        public int status { get; set; } // 0 停售 1 起售    
-        public string image{ get; set; }    // 图片   
-        public string description { get; set; }  
-        public DateTime create_time { get; set; }
-        public DateTime update_time { get; set; }
-        public long create_user { get; set; }
-        public long update_user { get; set; }
+        public long Id { get; set; }
+        public long CategoryId { get; set; }   // 菜品分类id
+        public string Name { get; set; }   
+        public decimal Price { get; set; }  
+        public int Status { get; set; } // 0 停售 1 起售    
+        public string Image{ get; set; }    // 图片   
+        public string Description { get; set; }  
+        public DateTime CreateTime { get; set; }
+        public DateTime UpdateTime { get; set; }
+        public long CreateUser { get; set; }
+        public long UpdateUser { get; set; }
     }
 }

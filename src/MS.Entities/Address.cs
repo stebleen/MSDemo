@@ -7,11 +7,11 @@ namespace MS.Entities
 {
     public class Address : IEntity
     {
-        public long id { get; set; }
-        public string campus_code { get; set; }  
-        public string campus_name { get; set; }
-        public string building_code { get; set; }
-        public string building_name { get; set; }
+        public long Id { get; set; }
+        public string CampusCode { get; set; }  
+        public string CampusName { get; set; }
+        public string BuildingCode { get; set; }
+        public string BuildingName { get; set; }
 
     }
 }

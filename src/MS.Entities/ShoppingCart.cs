@@ -7,15 +7,15 @@ namespace MS.Entities
 {
     public class ShoppingCart : IEntity
     {
-        public long id { get; set; }
-        public string name { get; set; }    // 商品名称
-        public string image { get; set; }   // 图片
-        public long user_id { get; set; }
-        public long dish_id { get; set; }   // 菜品id
-        public long setmeal_id { get; set; }    // 套餐id
-        public string dish_flavor { get; set; } // 口味
-        public int number { get; set; } // 数量
-        public decimal amount { get; set; } // 金额
-        public DateTime create_time { get; set; }
+        public long Id { get; set; }
+        public string Name { get; set; }    // 商品名称
+        public string Image { get; set; }   // 图片
+        public long UserId { get; set; }
+        public long DishId { get; set; }   // 菜品id
+        public long SetmealId { get; set; }    // 套餐id
+        public string DishFlavor { get; set; } // 口味
+        public int Number { get; set; } // 数量
+        public decimal Amount { get; set; } // 金额
+        public DateTime CreateTime { get; set; }
     }
 }
