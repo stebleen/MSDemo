@@ -441,3 +441,184 @@ Object name: 'System.Net.Sockets.Socket'.
 2024-06-15 13:55:25.4163 | Warn | MS.WebApi.Program | Test For Warn 
 2024-06-15 13:55:25.4722 | Error | MS.WebApi.Program | Test For Error 
 2024-06-15 13:55:25.4989 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 14:13:27.9435 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 14:13:28.0055 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 14:13:28.0554 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 14:13:36.7662 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 14:13:36.8388 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 14:13:36.8698 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 14:19:05.3210 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 14:19:05.3799 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 14:19:05.4164 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 15:33:23.0549 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 15:33:23.1412 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 15:33:23.1698 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 16:01:53.9946 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 16:01:54.0589 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 16:01:54.0894 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 16:02:06.5101 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 16:02:06.5735 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 16:02:06.8204 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 16:47:35.7339 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 16:47:35.8028 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 16:47:35.8632 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 16:53:34.4923 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 16:53:34.5497 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 16:53:35.1343 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 16:55:17.1501 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidOperationException: Unable to resolve service for type 'MS.Services.ICategoryService' while attempting to activate 'MS.WebApi.Controllers.CategoryController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass4_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass5_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.InvokeFilterPipelineAsync()
+--- End of stack trace from previous location where exception was thrown ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncMethodBuilderCore.Start => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-15 16:56:43.5123 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 16:56:43.5935 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 16:56:43.6227 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 16:58:03.6220 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 16:58:03.6787 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 16:58:03.7120 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 17:05:33.3052 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 17:05:33.3494 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 17:05:33.3832 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 17:09:19.0404 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 17:09:19.0939 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 17:09:19.1353 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 17:30:06.2139 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 17:30:06.2589 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 17:30:06.2885 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 17:33:44.8844 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 17:33:44.9557 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 17:33:44.9860 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 17:53:05.6208 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 17:53:05.7707 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 17:53:05.8094 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 17:58:01.5777 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 17:58:01.8524 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 17:58:01.8832 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 18:09:07.0287 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 18:09:07.0800 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 18:09:07.1046 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 18:37:18.6639 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 18:37:18.7170 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 18:37:18.8053 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 18:37:29.2023 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at MS.UnitOfWork.Repository`1.GetAllAsync(Expression`1 predicate, Func`2 orderBy, Func`2 include, Boolean disableTracking, Boolean ignoreQueryFilters) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 140
+   at MS.Services.ShoppingCartService.GetShoppingCart(Int64 userId) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\ShoppingCart\ShoppingCartService.cs:line 27
+   at MS.WebApi.Controllers.ShoppingCartController.List(Int64 userId) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\ShoppingCartController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncStateMachineBox`1.ExecutionContextCallback => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-15 20:30:29.4648 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 20:30:29.5290 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 20:30:29.7653 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 20:30:35.3876 | Error | Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware | An unhandled exception has occurred while executing the request. System.InvalidCastException: Unable to cast object of type 'System.DBNull' to type 'System.Int64'.
+   at MySqlConnector.Core.Row.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/Core/Row.cs:line 275
+   at MySql.Data.MySqlClient.MySqlDataReader.GetInt64(Int32 ordinal) in /_/src/MySqlConnector/MySql.Data.MySqlClient/MySqlDataReader.cs:line 235
+   at lambda_method(Closure , QueryContext , DbDataReader , ResultContext , Int32[] , ResultCoordinator )
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.AsyncEnumerator.MoveNextAsync()
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.EntityFrameworkQueryableExtensions.ToListAsync[TSource](IQueryable`1 source, CancellationToken cancellationToken)
+   at MS.UnitOfWork.Repository`1.GetAllAsync(Expression`1 predicate, Func`2 orderBy, Func`2 include, Boolean disableTracking, Boolean ignoreQueryFilters) in D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\Repository\Repository.cs:line 140
+   at MS.Services.ShoppingCartService.GetShoppingCart(Int64 userId) in D:\program\dotnet\code\final\MSDemo\src\MS.Services\ShoppingCart\ShoppingCartService.cs:line 27
+   at MS.WebApi.Controllers.ShoppingCartController.List(Int64 userId) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Controllers\ShoppingCartController.cs:line 25
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|24_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|19_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Awaited|17_0(ResourceInvoker invoker, Task task, IDisposable scope)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
+ AsyncStateMachineBox`1.ExecutionContextCallback => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
+
+2024-06-15 21:20:39.9180 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:20:39.9858 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:20:40.0128 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 21:20:47.7134 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:20:47.7697 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:20:47.8321 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 21:39:21.7747 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:39:21.8219 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:39:21.8482 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 21:42:35.8856 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:42:35.9377 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:42:36.1375 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 21:52:16.7820 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:52:16.8388 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:52:16.8672 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 21:53:18.1050 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:53:18.1575 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:53:18.1867 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 21:55:04.0723 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 21:55:04.1297 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 21:55:04.1631 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 22:19:14.6265 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 22:19:14.6832 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 22:19:14.7146 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 22:19:28.2774 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 22:19:28.3304 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 22:19:28.4296 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 22:19:50.0741 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 22:19:50.1295 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 22:19:50.1585 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 22:20:50.6204 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 22:20:50.6697 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 22:20:50.9153 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 22:21:00.3666 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 22:21:00.4093 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 22:21:00.4351 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-15 23:20:13.4012 | Fatal | MS.WebApi.Program | 网站启动失败 System.ArgumentException: The type 'MS.Services.AddressBookService' is not assignable to service 'MS.Services.IAddressBookService'.
+   at Autofac.Builder.RegistrationBuilder.CreateRegistration(Guid id, RegistrationData data, IInstanceActivator activator, Service[] services, IComponentRegistration target)
+   at Autofac.Builder.RegistrationBuilder.CreateRegistration[TLimit,TActivatorData,TSingleRegistrationStyle](IRegistrationBuilder`3 builder)
+   at Autofac.Builder.RegistrationBuilder.RegisterSingleComponent[TLimit,TActivatorData,TSingleRegistrationStyle](IComponentRegistry cr, IRegistrationBuilder`3 builder)
+   at Autofac.RegistrationExtensions.<>c__DisplayClass3_0`1.<RegisterType>b__0(IComponentRegistry cr)
+   at Autofac.ContainerBuilder.Build(IComponentRegistry componentRegistry, Boolean excludeDefaultModules)
+   at Autofac.ContainerBuilder.Build(ContainerBuildOptions options)
+   at Autofac.Extensions.DependencyInjection.AutofacServiceProviderFactory.CreateServiceProvider(ContainerBuilder containerBuilder)
+   at Microsoft.Extensions.Hosting.Internal.ServiceFactoryAdapter`1.CreateServiceProvider(Object containerBuilder)
+   at Microsoft.Extensions.Hosting.HostBuilder.CreateServiceProvider()
+   at Microsoft.Extensions.Hosting.HostBuilder.Build()
+   at MS.WebApi.Program.Main(String[] args) in D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\Program.cs:line 27 
+ Program.Main 
+
+2024-06-15 23:34:01.4614 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-15 23:34:01.5222 | Error | MS.WebApi.Program | Test For Error 
+2024-06-15 23:34:01.5552 | Fatal | MS.WebApi.Program | Test For Fatal 

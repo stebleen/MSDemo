@@ -49,6 +49,12 @@ namespace MS.WebApi
             builder.RegisterType<RoleService>().As<IRoleService>().InstancePerLifetimeScope();
             builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
             builder.RegisterType<WeChatService>().As<IWeChatService>().InstancePerLifetimeScope();
+            builder.RegisterType<CategoryService>().As<ICategoryService>().InstancePerLifetimeScope();
+            builder.RegisterType<DishService>().As<IDishService>().InstancePerLifetimeScope();
+            builder.RegisterType<SetmealService>().As<ISetmealService>().InstancePerLifetimeScope();
+            builder.RegisterType<ShoppingCartService>().As<IShoppingCartService>().InstancePerLifetimeScope();
+            builder.RegisterType<AddressBookService>().As<IAddressBookService>().InstancePerLifetimeScope();
+            builder.RegisterType<AddressService>().As<IAddressService>().InstancePerLifetimeScope();
         }
 
 
@@ -79,7 +85,7 @@ namespace MS.WebApi
             services.AddScoped<IBaseService, BaseService>();
             services.AddScoped<IRoleService, RoleService>();
             */
-
+       
 
         }
 

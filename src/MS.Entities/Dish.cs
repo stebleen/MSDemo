@@ -19,5 +19,7 @@ namespace MS.Entities
         public DateTime UpdateTime { get; set; }
         public long CreateUser { get; set; }
         public long UpdateUser { get; set; }
+
+        public List<DishFlavor> Flavors { get; set; }
     }
 }
