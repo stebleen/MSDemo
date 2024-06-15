@@ -9,9 +9,9 @@ namespace MS.WebCore.Core
     /// </summary>
     public class ExecuteResult
     {
-        public virtual ExecuteResult Set(bool isSucceed, string message)
+        public virtual ExecuteResult Set(bool code, string message)
         {
-            IsSucceed = isSucceed;
+            Code = code;
             Message = message;
             return this;
         }
@@ -28,12 +28,12 @@ namespace MS.WebCore.Core
         {
             return Set(false, string.Empty);
         }
-        public ExecuteResult(bool isSucceed, string message)
+        public ExecuteResult(bool code, string message)
         {
-            Set(isSucceed, message);
+            Set(code, message);
         }
         /// <summary>
-        /// 如果是给字符串，表示有错误信息，默认IsSucceed=false
+        /// 如果是给字符串，表示有错误信息，默认Code=false
         /// </summary>
         /// <param name="message"></param>
         public ExecuteResult(string message)
@@ -41,7 +41,7 @@ namespace MS.WebCore.Core
             Set(false, message);
         }
         /// <summary>
-        /// 如果是空的，没有信息，默认IsSucceed=true
+        /// 如果是空的，没有信息，默认Code=true
         /// </summary>
         public ExecuteResult()
         {
@@ -50,7 +50,7 @@ namespace MS.WebCore.Core
         /// 执行是否成功
         /// 默认为True
         /// </summary>
-        public bool IsSucceed { get; set; } = true;
+        public bool Code { get; set; } = true;
         /// <summary>
         /// 执行信息（一般是错误信息）
         /// 默认置空
@@ -63,11 +63,11 @@ namespace MS.WebCore.Core
     /// <typeparam name="T"></typeparam>
     public class ExecuteResult<T> : ExecuteResult
     {
-        public ExecuteResult<T> Set(bool isSucceed, string message, T result)
+        public ExecuteResult<T> Set(bool code, string message, T result)
         {
-            IsSucceed = isSucceed;
+            Code = code;
             Message = message;
-            Result = result;
+            Data = result;
             return this;
         }
         public ExecuteResult<T> SetData(T data)
@@ -104,6 +104,6 @@ namespace MS.WebCore.Core
             SetData(result);
         }
 
-        public T Result { get; set; }
+        public T Data { get; set; }
     }
 }

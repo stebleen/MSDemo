@@ -17,6 +17,8 @@ namespace MS.Models.ViewModel
         [StringLength(45, ErrorMessage = "微信用户唯一标识不能超过45个字符")]
         public string OpenId { get; set; }
 
+        /*
+
         [StringLength(32, ErrorMessage = "姓名不能超过32个字符")]
         public string Name { get; set; }
 
@@ -34,6 +36,7 @@ namespace MS.Models.ViewModel
         public string Avatar { get; set; }
 
         public DateTime? CreateTime { get; set; }
+        */
 
         public ExecuteResult CheckField(ExecuteType executeType, IUnitOfWork<MSDbContext> unitOfWork)
         {

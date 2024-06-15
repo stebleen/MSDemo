@@ -23,7 +23,7 @@ namespace MS.Services
         {
             ExecuteResult<Role> result = new ExecuteResult<Role>();
             //检查字段
-            if (viewModel.CheckField(ExecuteType.Create, _unitOfWork) is ExecuteResult checkResult && !checkResult.IsSucceed)
+            if (viewModel.CheckField(ExecuteType.Create, _unitOfWork) is ExecuteResult checkResult && !checkResult.Code)
             {
                 return result.SetFailMessage(checkResult.Message);
             }
@@ -47,7 +47,7 @@ namespace MS.Services
         {
             ExecuteResult result = new ExecuteResult();
             //检查字段
-            if (viewModel.CheckField(ExecuteType.Delete, _unitOfWork) is ExecuteResult checkResult && !checkResult.IsSucceed)
+            if (viewModel.CheckField(ExecuteType.Delete, _unitOfWork) is ExecuteResult checkResult && !checkResult.Code)
             {
                 return checkResult;
             }
@@ -60,7 +60,7 @@ namespace MS.Services
         {
             ExecuteResult result = new ExecuteResult();
             //检查字段
-            if (viewModel.CheckField(ExecuteType.Update, _unitOfWork) is ExecuteResult checkResult && !checkResult.IsSucceed)
+            if (viewModel.CheckField(ExecuteType.Update, _unitOfWork) is ExecuteResult checkResult && !checkResult.Code)
             {
                 return checkResult;
             }

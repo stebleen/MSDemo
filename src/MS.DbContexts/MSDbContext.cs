@@ -24,7 +24,6 @@ namespace MS.DbContexts
         {
             modelBuilder.ApplyConfiguration(new LogrecordMap());
             modelBuilder.ApplyConfiguration(new RoleMap());
-            modelBuilder.ApplyConfiguration(new UserLoginMap());
             modelBuilder.ApplyConfiguration(new TUserMap());
             modelBuilder.ApplyConfiguration(new UserMap());
             modelBuilder.ApplyConfiguration(new AddressMap());
@@ -38,6 +37,7 @@ namespace MS.DbContexts
             modelBuilder.ApplyConfiguration(new SetmealDishMap());
             modelBuilder.ApplyConfiguration(new SetmealMap());
             modelBuilder.ApplyConfiguration(new ShoppingCartMap());
+
 
             base.OnModelCreating(modelBuilder);
         }

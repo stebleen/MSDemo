@@ -47,6 +47,8 @@ namespace MS.WebApi
             //注册IBaseService和IRoleService接口及对应的实现类
             builder.RegisterType<BaseService>().As<IBaseService>().InstancePerLifetimeScope();
             builder.RegisterType<RoleService>().As<IRoleService>().InstancePerLifetimeScope();
+            builder.RegisterType<UserService>().As<IUserService>().InstancePerLifetimeScope();
+            builder.RegisterType<WeChatService>().As<IWeChatService>().InstancePerLifetimeScope();
         }
 
 

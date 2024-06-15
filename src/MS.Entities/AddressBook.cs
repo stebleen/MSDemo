@@ -16,7 +16,7 @@ namespace MS.Entities
         public string Sex { get; set; }
         public string Phone { get; set; }
         public string Domitory { get; set; }    // 宿舍号
-        public int IsDefault { get; set; }    // 默认 0 否 1是
+        public bool IsDefault { get; set; }    // 默认 0 否 1是
 
     }
 }
