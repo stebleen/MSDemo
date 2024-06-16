@@ -60,5 +60,25 @@ namespace MS.WebApi.Controllers
                 return Ok(new { code = false, data = "Error", msg = result.Message });
             }
         }
+
+
+        [HttpDelete("clean")]
+        public async Task<IActionResult> CleanCart()
+        {
+            
+            long userId = 7;
+
+            var result = await _shoppingCartService.CleanCartAsync(userId);
+
+            if (result.Code)
+            {
+                return Ok(new { code = true, data = new { }, msg = result.Message });
+            }
+            else
+            {
+                return BadRequest(new { code = false, data = new { }, msg = result.Message });
+            }
+        }
+
     }
 }

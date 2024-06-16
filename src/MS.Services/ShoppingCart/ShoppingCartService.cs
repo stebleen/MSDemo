@@ -140,6 +140,33 @@ namespace MS.Services
             return result;
         }
 
+
+        public async Task<ExecuteResult<bool>> CleanCartAsync(long userId)
+        {
+            ExecuteResult<bool> result = new ExecuteResult<bool>();
+
+            var cartItems = await _unitOfWork.GetRepository<ShoppingCart>().GetAllAsync(c => c.UserId == userId);
+            if (!cartItems.Any())
+            {
+                result.SetFailMessage("购物车已为空");
+                return result;
+            }
+
+            foreach (var item in cartItems)
+            {
+                _unitOfWork.GetRepository<ShoppingCart>().Delete(item);
+            }
+
+            await _unitOfWork.SaveChangesAsync();
+
+            result.Code = true;
+            result.Message = "购物车已清空";
+            result.Data = true;
+
+            return result;
+        }
+
+
     }
 
 }
