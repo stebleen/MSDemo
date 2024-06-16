@@ -69,5 +69,62 @@ namespace MS.Services
         
             return true;
         }
+
+        public async Task<AddressBook> GetAddressBookByIdAsync(long id)
+        {
+            return await _unitOfWork.GetRepository<AddressBook>().FindAsync(id);
+        }
+
+        public async Task<bool> DeleteAddressBookByIdAsync(long id)
+        {
+            var repository = _unitOfWork.GetRepository<AddressBook>();
+            var addressBook = await repository.FindAsync(id);
+            if (addressBook != null)
+            {
+                repository.Delete(addressBook);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<bool> UpdateAddressBookAsync(AddressBook updateDto)
+        {
+            var addressBook = await _unitOfWork.GetRepository<AddressBook>().FindAsync(updateDto.Id);
+            string jsonString = System.Text.Json.JsonSerializer.Serialize(updateDto);
+            System.Console.WriteLine(jsonString);
+            System.Console.WriteLine("接下来打印的是 updateDto.Id:");
+            System.Console.WriteLine(updateDto.Id);
+            System.Console.WriteLine("接下来打印的是 updateDto.UserId:");
+            System.Console.WriteLine(updateDto.UserId);
+            if (addressBook == null)
+            {
+                return false;
+            }
+            
+
+            // 更新属性
+            addressBook.UserId = updateDto.UserId;
+            System.Console.WriteLine("接下来打印的是 updateDto.UserId:");
+            System.Console.WriteLine(updateDto.UserId);
+            addressBook.UserId = 7;
+
+            addressBook.Consignee = updateDto.Consignee;
+            addressBook.Sex = updateDto.Sex;
+            addressBook.Phone = updateDto.Phone;
+            addressBook.Domitory = updateDto.Domitory;
+            addressBook.IsDefault = updateDto.IsDefault;
+            addressBook.AddressId = updateDto.AddressId;
+
+            _unitOfWork.GetRepository<AddressBook>().Update(addressBook);
+            await _unitOfWork.SaveChangesAsync();
+
+            return true;
+        }
+
+
+
     }
 }

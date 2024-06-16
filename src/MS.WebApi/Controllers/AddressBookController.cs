@@ -86,6 +86,53 @@ namespace MS.WebApi.Controllers
                 });
             }
         }
+
+
+        [HttpGet("{id:long}")]
+        public async Task<IActionResult> GetAddressBookById(long id)
+        {
+            var addressBook = await _addressBookService.GetAddressBookByIdAsync(id);
+
+            if (addressBook == null)
+            {
+                return NotFound(new { code = false, msg = "未找到相应的地址信息。" });
+            }
+
+            return Ok(new
+            {
+                code = true,
+                data = addressBook,
+                msg = "获取默认地址成功"
+            }); ;
+        }
+
+
+        [HttpDelete]
+        public async Task<IActionResult> DeleteAddressBook([FromQuery] long id) // 注意这里的改动
+        {
+            var result = await _addressBookService.DeleteAddressBookByIdAsync(id);
+            if (result)
+            {
+                return Ok(new { code=true,message = "地址删除成功" });
+            }
+
+            return NotFound(new { code=false,message = "未找到要删除的地址" });
+        }
+
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateAddressBook([FromBody] AddressBook updateDto)
+        {
+            var result = await _addressBookService.UpdateAddressBookAsync(updateDto);
+            if (result)
+            {
+                return Ok(new { code=true,message = "地址更新成功" });
+            }
+
+            return NotFound(new { code=false,message = "未找到要更新的地址" });
+        }
+
+
     }
 
 
