@@ -59,5 +59,56 @@ namespace MS.Services
 
             return dishesInfo;
         }
+
+
+
+        public async Task<SetmealPageResponseDto> GetSetmealPageAsync(SetmealPageRequestDto requestDto)
+        {
+            var setmeals = _unitOfWork.GetRepository<Setmeal>().GetAll();
+            var categories = _unitOfWork.GetRepository<Category>().GetAll();
+
+            var query = from setmeal in setmeals
+                        join category in categories
+                        on setmeal.CategoryId equals category.Id
+                        select new SetmealDto
+                        {
+                            Id = setmeal.Id,
+                            CategoryId = setmeal.CategoryId,
+                            CategoryName = category.Name,
+                            Name = setmeal.Name,
+                            Price = setmeal.Price,
+                            Status = setmeal.Status,
+                            Description = setmeal.Description,
+                            Image = setmeal.Image,
+                            UpdateTime = setmeal.UpdateTime.ToString("o"),
+                        };
+
+            // 应用筛选条件
+            if (!string.IsNullOrEmpty(requestDto.CategoryId))
+            {
+                var categoryId = long.Parse(requestDto.CategoryId);
+                query = query.Where(s => s.CategoryId == categoryId);
+            }
+            if (!string.IsNullOrEmpty(requestDto.Name))
+            {
+                query = query.Where(s => s.Name.Contains(requestDto.Name));
+            }
+            if (!string.IsNullOrEmpty(requestDto.Status))
+            {
+                var status = int.Parse(requestDto.Status);
+                query = query.Where(s => s.Status == status);
+            }
+
+            int total = await query.CountAsync();
+            List<SetmealDto> records = await query
+                .Skip((requestDto.Page - 1) * requestDto.PageSize)
+                .Take(requestDto.PageSize)
+                .ToListAsync();
+
+            return new SetmealPageResponseDto { Total = total, Records = records };
+        }
+
+
+
     }
 }

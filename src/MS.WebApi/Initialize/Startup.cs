@@ -56,6 +56,7 @@ namespace MS.WebApi
             builder.RegisterType<AddressBookService>().As<IAddressBookService>().InstancePerLifetimeScope();
             builder.RegisterType<AddressService>().As<IAddressService>().InstancePerLifetimeScope();
             builder.RegisterType<OrderService>().As<IOrderService>().InstancePerLifetimeScope();
+            builder.RegisterType<EmployeeService>().As<IEmployeeService>().InstancePerLifetimeScope();
         }
 
 
