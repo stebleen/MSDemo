@@ -125,6 +125,26 @@ namespace MS.Services
         }
 
 
+        public async Task<AddressBook> AddAddressBookAsync(AddressBook createDto)
+        {
+            var addressBook = new AddressBook
+            {
+                // UserId = createDto.UserId,
+                UserId = 7,
+                Consignee = createDto.Consignee,
+                Sex = createDto.Sex,
+                Phone = createDto.Phone,
+                Domitory = createDto.Domitory,
+                IsDefault = createDto.IsDefault,
+                AddressId = createDto.AddressId
+            };
+
+            await _unitOfWork.GetRepository<AddressBook>().InsertAsync(addressBook);
+            await _unitOfWork.SaveChangesAsync();
+
+            return addressBook;
+        }
+
 
     }
 }

@@ -133,6 +133,35 @@ namespace MS.WebApi.Controllers
         }
 
 
+        [HttpPost]
+        public async Task<IActionResult> AddAddressBook([FromBody] AddressBook createDto)
+        {
+            var addressBook = await _addressBookService.AddAddressBookAsync(createDto);
+            if (addressBook != null)
+            {
+                // 构建成功时返回的JSON结构
+                var successResponse = new
+                {
+                    code = true,
+                    data = addressBook, // 或使用匿名对象装载您想返回的地址信息
+                    msg = "新增地址成功"
+                };
+                return Ok(successResponse);
+            }
+            else
+            {
+                // 构建失败时返回的JSON结构
+                var errorResponse = new
+                {
+                    code = false,
+                    data = new { }, // 根据需要可返回额外信息
+                    msg = "新增地址失败"
+                };
+                return BadRequest(errorResponse);
+            }
+        }
+
+
     }
 
 

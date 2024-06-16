@@ -526,3 +526,6 @@ Object name: 'System.Net.Sockets.Socket'.
 2024-06-16 12:08:26.8222 | Warn | MS.WebApi.Program | Test For Warn 
 2024-06-16 12:08:26.9045 | Error | MS.WebApi.Program | Test For Error 
 2024-06-16 12:08:26.9864 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-16 12:25:10.3074 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-16 12:25:10.6197 | Error | MS.WebApi.Program | Test For Error 
+2024-06-16 12:25:10.7129 | Fatal | MS.WebApi.Program | Test For Fatal 

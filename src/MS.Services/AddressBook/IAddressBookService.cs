@@ -20,5 +20,7 @@ namespace MS.Services
         Task<bool> DeleteAddressBookByIdAsync(long id);
         // 根据id修改地址
         Task<bool> UpdateAddressBookAsync(AddressBook updateDto);
+        // 新增地址
+        Task<AddressBook> AddAddressBookAsync(AddressBook createDto);
     }
 }
