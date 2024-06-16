@@ -49,7 +49,7 @@ namespace MS.Services
             }
 
             // 清除该用户的所有默认地址
-            var userAddresses = await repository.GetAllAsync(a => a.UserId == addressToSetDefault.UserId, disableTracking: true);
+            var userAddresses = await repository.GetAllAsync(a => a.UserId == addressToSetDefault.UserId, disableTracking: false);
             foreach (var item in userAddresses)
             {
                 //_unitOfWork.DbContext.Entry(item).State = EntityState.Modified;

@@ -455,3 +455,6 @@
 2024-06-16 02:04:05.1042 | Warn | MS.WebApi.Program | Test For Warn 
 2024-06-16 02:04:05.1983 | Error | MS.WebApi.Program | Test For Error 
 2024-06-16 02:04:05.2840 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-16 10:25:22.5125 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-16 10:25:22.7380 | Error | MS.WebApi.Program | Test For Error 
+2024-06-16 10:25:22.9866 | Fatal | MS.WebApi.Program | Test For Fatal 
