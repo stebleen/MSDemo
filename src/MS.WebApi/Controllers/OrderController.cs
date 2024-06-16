@@ -19,6 +19,8 @@ namespace MS.WebApi.Controllers
         {
             _orderService = orderService;
         }
+
+
         [HttpPost("submit")]
         public async Task<IActionResult> SubmitOrder([FromBody] Orders submitOrderDto)
         {
@@ -38,5 +40,23 @@ namespace MS.WebApi.Controllers
                 msg = "成功创建订单"
             });
         }
+
+        [HttpPut("payment")]
+        public async Task<IActionResult> PayOrder([FromBody] Orders payOrderDto)
+        {
+            try
+            {
+                var paymentInfo = await _orderService.PayOrderAsync(payOrderDto.Number, payOrderDto.PayMethod);
+                return Ok(new { code = true, data= paymentInfo });
+            }
+            catch (Exception ex)
+            {
+                // return BadRequest(new { message = ex.Message });
+                return Ok(new { code = true, message = ex.Message });
+            }
+       
+        }
+
+
     }
 }

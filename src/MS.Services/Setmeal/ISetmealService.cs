@@ -9,5 +9,6 @@ namespace MS.Services
     public interface ISetmealService : IBaseService
     {
         Task<IEnumerable<Setmeal>> GetSetmealByCategoryIdAsync(long categoryId);
+        Task<IEnumerable<DishDto>> GetDishesBySetmealIdAsync(long setmealId);
     }
 }

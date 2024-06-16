@@ -106,6 +106,51 @@ namespace MS.Services
             // 生成唯一的订单号逻辑
             return DateTime.Now.Ticks.ToString();
         }
+
+
+        public async Task<PaymentInfoDto> PayOrderAsync(string orderNumber, int payMethod)
+        {
+            // 示例：查找订单
+            var orderRepository = _unitOfWork.GetRepository<Orders>();
+
+            // 使用 GetFirstOrDefaultAsync 方法根据订单号查询订单
+            var order = await orderRepository.GetFirstOrDefaultAsync(
+                predicate: o => o.Number == orderNumber,
+                disableTracking: false
+            );
+
+            if (order == null)
+            {
+                throw new Exception("订单不存在");
+            }
+
+            // 示例：支付处理逻辑
+            // 根据payMethod调用不同支付服务，然后处理支付结果
+
+            // 示例：返回支付信息模拟
+            return new PaymentInfoDto
+            {
+                NonceStr = GenerateNonceStr(),
+                PaySign = "模拟签名",
+                TimeStamp = GenerateTimeStamp(),
+                SignType = "MD5", // 仅示例，实际根据支付服务提供商要求
+                PackageStr = "prepay_id=示例"
+            };
+        }
+
+        private string GenerateNonceStr()
+        {
+            // 生成随机字符串
+            return Guid.NewGuid().ToString("N");
+        }
+
+        private string GenerateTimeStamp()
+        {
+            // 生成时间戳
+            return DateTimeOffset.Now.ToUnixTimeSeconds().ToString();
+        }
+
+
     }
 
 }

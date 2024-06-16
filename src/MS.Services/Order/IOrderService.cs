@@ -7,7 +7,10 @@ namespace MS.Services
 {
     public interface IOrderService : IBaseService
     {
+        // 下单
         Task<OrderResponseDto> SubmitOrderAsync(Orders submitOrderDto, long userId);
+        // 支付
+        Task<PaymentInfoDto> PayOrderAsync(string orderNumber, int payMethod);
 
     }
 }

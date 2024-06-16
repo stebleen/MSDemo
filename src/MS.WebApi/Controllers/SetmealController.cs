@@ -17,6 +17,8 @@ namespace MS.WebApi.Controllers
         {
             _setmealService = setmealService;
         }
+
+
         [HttpGet("list")]
         public async Task<IActionResult> GetSetmealByCategory([FromQuery] long? categoryId)
         {
@@ -39,6 +41,14 @@ namespace MS.WebApi.Controllers
                 // 在生产环境中，更详细的错误处理很重要，包括记录日志
                 return StatusCode(500, new { code = false, message = "Internal server error: " + ex.Message });
             }
+        }
+
+
+        [HttpGet("dish/{id:long}")]
+        public async Task<IActionResult> GetDishesBySetmealId(long id)
+        {
+            var dishDtos = await _setmealService.GetDishesBySetmealIdAsync(id);
+            return Ok(new { code=true, data=dishDtos });
         }
     }
 }
