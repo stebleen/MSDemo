@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MS.Common.Extensions;
 using MS.Entities.admin;
+using System.Globalization;
 
 namespace MS.Services
 {
@@ -146,6 +147,45 @@ namespace MS.Services
                     SetmealId = d.SetmealId
                 }).ToList()
             };
+        }
+
+        public async Task<bool> CreateSetmealAsync(AddSetmealDto setmeal)
+        {
+            var success = decimal.TryParse(setmeal.Price, NumberStyles.Any, CultureInfo.InvariantCulture, out var priceValue);
+            var _setmeal = new Setmeal
+            {
+                CategoryId = setmeal.CategoryId,
+                Description = setmeal.Description,
+                Image = setmeal.Image,
+                Name = setmeal.Name,
+                Price = priceValue,
+                Status = setmeal.Status,
+                UpdateTime = DateTime.UtcNow,
+                CreateTime = DateTime.UtcNow,
+                UpdateUser =2,
+                CreateUser =2
+
+            };
+            _unitOfWork.GetRepository<Setmeal>().Insert(_setmeal);
+            await _unitOfWork.SaveChangesAsync();
+            
+            if(setmeal != null)
+            {
+                _setmeal.setmealDishes=setmeal.setmealDishes.Select(f=> new SetmealDish {
+                    Copies = f.Copies,
+                    DishId = f.DishId,
+                    Name = f.Name,
+                    Price = f.Price,
+                    SetmealId = f.SetmealId
+                }).ToList();
+
+                _unitOfWork.GetRepository<Setmeal>().Update(_setmeal);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+
         }
 
 

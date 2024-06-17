@@ -1,17 +1,15 @@
-﻿using MS.Entities.Core;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace MS.Entities
+namespace MS.Entities.admin
 {
-    public class Setmeal : IEntity
+    public class AddSetmealDto
     {
-        // 套餐
         public long Id { get; set; }
         public long CategoryId { get; set; }   // 菜品分类id
         public string Name { get; set; }    // 套餐名称
-        public decimal Price { get; set; }
+        public string Price { get; set; }
         public int Status { get; set; }  // 售卖状态 0:停售 1:起售
         public string Description { get; set; }
         public string Image { get; set; }
@@ -21,6 +19,5 @@ namespace MS.Entities
         public long UpdateUser { get; set; }
 
         public List<SetmealDish> setmealDishes { get; set; }
-
     }
 }

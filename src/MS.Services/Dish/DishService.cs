@@ -298,6 +298,31 @@ namespace MS.Services
         }
 
 
+        public async Task<List<DishByCategoryIdDto>> AdminGetDishesByCategoryIdAsync(long categoryId)
+        {
+            var dishes = await _unitOfWork.GetRepository<Dish>()
+            .GetAll()
+            .Where(d => d.CategoryId == categoryId && d.Status == 1) // 假设仅返回状态为启售的菜品
+            .Select(d => new DishByCategoryIdDto
+            {
+                Id = d.Id,
+                CategoryId = d.CategoryId,
+                Name = d.Name,
+                Price = d.Price,
+                Status = d.Status,
+                Image = d.Image,
+                Description = d.Description,
+                CreateTime = d.CreateTime != null ? d.CreateTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ") : null,
+                UpdateTime = d.UpdateTime != null ? d.UpdateTime.Value.ToString("yyyy-MM-ddTHH:mm:ssZ") : null,
+                CreateUser = d.CreateUser,
+                UpdateUser = d.UpdateUser
+            })
+            .ToListAsync();
+
+            return dishes;
+        }
+
+
 
     }
 }

@@ -23,5 +23,8 @@ namespace MS.Services
         Task<bool> UpdateDishAsync(AddDishDto dishDto);
 
         Task<bool> DeleteDishesAsync(string ids);
+
+        Task<List<DishByCategoryIdDto>> AdminGetDishesByCategoryIdAsync(long categoryId);
     }
+
 }

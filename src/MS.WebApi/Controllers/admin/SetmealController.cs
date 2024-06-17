@@ -6,6 +6,7 @@ using MS.Services;
 using Renci.SshNet.Messages;
 using MS.Entities;
 using System;
+using MS.Entities.admin;
 
 namespace MS.WebApi.Controllers.admin
 {
@@ -39,6 +40,20 @@ namespace MS.WebApi.Controllers.admin
             else
             {
                 return NotFound(new { code = false, msg = "Setmeal not found" });
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AddSetmeal([FromBody] AddSetmealDto setmealDto)
+        {
+            var createdsetmeal = await _setmealService.CreateSetmealAsync(setmealDto);
+            if (createdsetmeal)
+            {
+                return Ok(new { code = true, data = "Setmeal added successfully", msg = "Success" });
+            }
+            else
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Failed to add setmeal" });
             }
         }
 

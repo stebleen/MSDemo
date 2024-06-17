@@ -112,6 +112,23 @@ namespace MS.WebApi.Controllers.admin
             }
         }
 
+        [HttpGet("list")]
+        public async Task<IActionResult> GetDishesByCategoryId([FromQuery] string categoryId)
+        {
+            if (!long.TryParse(categoryId, out long parsedCategoryId))
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Invalid categoryId" });
+            }
+
+            var dishes = await _dishService.AdminGetDishesByCategoryIdAsync(parsedCategoryId);
+            if (dishes == null || dishes.Count == 0)
+            {
+                return NotFound(new { code = false, msg = "No dishes found for the given category ID" });
+            }
+
+            return Ok(new { code = true, data = dishes, msg = "Success" });
+        }
+
 
 
     }

@@ -17,5 +17,7 @@ namespace MS.Services
         Task<SetmealPageResponseDto> GetSetmealPageAsync(SetmealPageRequestDto requestDto);
 
         Task<SetmealVO> GetSetmealByIdAsync(long setmealId);
+
+        Task<bool> CreateSetmealAsync(AddSetmealDto setmeal);
     }
 }
