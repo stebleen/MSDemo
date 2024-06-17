@@ -368,6 +368,93 @@ namespace MS.Services
         }
 
 
+        public async Task<bool> ConfirmOrderAsync(long orderId)
+        {
+            var order = await _unitOfWork.GetRepository<Orders>().GetFirstOrDefaultAsync(predicate: o => o.Id == orderId);
+
+            if (order != null)
+            {
+                order.Status = 3; // 更改订单状态为“已接单”
+                _unitOfWork.GetRepository<Orders>().Update(order);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+
+        public async Task<bool> DeliverOrderAsync(long orderId)
+        {
+            var repo = _unitOfWork.GetRepository<Orders>();
+            var order = await repo.GetFirstOrDefaultAsync(predicate:o => o.Id == orderId);
+
+            if (order != null)
+            {
+                order.Status = 4; // 将订单状态改为4（派送中）
+                repo.Update(order);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<bool> FinishOrderAsync(long orderId)
+        {
+            var repo = _unitOfWork.GetRepository<Orders>();
+            var order = await repo.GetFirstOrDefaultAsync(predicate: o => o.Id == orderId);
+
+            if (order != null)
+            {
+                order.Status = 5; // 将订单状态改为5（已完成）
+                repo.Update(order);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<bool> CancelOrderAsync(OrdersCancelDTO orderCancelDto)
+        {
+            var repo = _unitOfWork.GetRepository<Orders>();
+            var order = await repo.GetFirstOrDefaultAsync(predicate:o => o.Id == orderCancelDto.Id);
+
+            if (order != null)
+            {
+                order.CancelReason = orderCancelDto.CancelReason; // 更新取消原因
+                order.Status = 6; // 更新订单状态为已取消
+                repo.Update(order);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+        public async Task<bool> RejectionOrderAsync(OrdersRejectionDTO orderRejectionDto)
+        {
+            var repo = _unitOfWork.GetRepository<Orders>();
+            var order = await repo.GetFirstOrDefaultAsync(predicate: o => o.Id == orderRejectionDto.Id);
+
+            if (order != null)
+            {
+                order.RejectionReason = orderRejectionDto.RejectionReason; // 更新取消原因
+                order.Status = 6; // 更新订单状态为已取消
+                repo.Update(order);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+
     }
 
 }

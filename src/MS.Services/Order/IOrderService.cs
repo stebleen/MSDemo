@@ -21,5 +21,15 @@ namespace MS.Services
 
         Task<OrderDetailsResponse> GetOrderDetailsAsync(long orderId);
 
+        Task<bool> ConfirmOrderAsync(long orderId);
+
+        Task<bool> DeliverOrderAsync(long orderId);
+
+        Task<bool> FinishOrderAsync(long orderId);
+
+        Task<bool> CancelOrderAsync(OrdersCancelDTO orderCancelDto);
+
+        Task<bool> RejectionOrderAsync(OrdersRejectionDTO orderRejectionDto);
+
     }
 }
