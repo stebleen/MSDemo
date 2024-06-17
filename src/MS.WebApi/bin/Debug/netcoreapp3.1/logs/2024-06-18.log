@@ -87,3 +87,6 @@ Object name: 'System.Net.Sockets.Socket'.
 2024-06-18 00:26:21.1582 | Warn | MS.WebApi.Program | Test For Warn 
 2024-06-18 00:26:21.2620 | Error | MS.WebApi.Program | Test For Error 
 2024-06-18 00:26:21.3442 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-18 00:40:35.3823 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-18 00:40:35.4874 | Error | MS.WebApi.Program | Test For Error 
+2024-06-18 00:40:35.5703 | Fatal | MS.WebApi.Program | Test For Fatal 

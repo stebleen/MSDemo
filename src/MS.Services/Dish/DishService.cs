@@ -262,6 +262,42 @@ namespace MS.Services
             return true;
         }
 
+        public async Task<bool> DeleteDishesAsync(string ids)
+        {
+            var idsArray = ids.Split(',').Select(id => long.Parse(id)).ToList();
+
+            // 检查是否有套餐引用这些菜品
+            var setmealDishExists = await _unitOfWork.GetRepository<SetmealDish>().GetAll()
+                                       .AnyAsync(sd => idsArray.Contains(sd.DishId));
+            if (setmealDishExists)
+            {
+                // 如果有套餐引用，则不能删除这些菜品
+                return false;
+            }
+
+            foreach (var id in idsArray)
+            {
+                var dish = await _unitOfWork.GetRepository<Dish>().GetFirstOrDefaultAsync(predicate: d => d.Id == id);
+                if (dish != null)
+                {
+                    // 删除菜品相关的口味信息
+                    var dishFlavors = await _unitOfWork.GetRepository<DishFlavor>().GetAll()
+                                          .Where(df => df.DishId == id).ToListAsync();
+                    foreach (var flavor in dishFlavors)
+                    {
+                        _unitOfWork.GetRepository<DishFlavor>().Delete(flavor);
+                    }
+
+                    // 删除菜品
+                    _unitOfWork.GetRepository<Dish>().Delete(dish);
+                }
+            }
+
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+
 
     }
 }
