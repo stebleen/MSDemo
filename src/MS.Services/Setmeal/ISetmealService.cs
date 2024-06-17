@@ -21,5 +21,7 @@ namespace MS.Services
         Task<bool> CreateSetmealAsync(AddSetmealDto setmeal);
 
         Task<bool> DeleteSetmealsAsync(string ids);
+
+        Task<bool> UpdateSetmealStatusAsync(long id, int status);
     }
 }

@@ -218,6 +218,22 @@ namespace MS.Services
         }
 
 
+        public async Task<bool> UpdateSetmealStatusAsync(long id, int status)
+        {
+            var setmeal = await _unitOfWork.GetRepository<Setmeal>().GetFirstOrDefaultAsync(predicate: c => c.Id == id);
+
+            if (setmeal != null)
+            {
+                setmeal.Status = status;
+                _unitOfWork.GetRepository<Setmeal>().Update(setmeal);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
 
     }
 }
