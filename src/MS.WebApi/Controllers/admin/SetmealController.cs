@@ -94,5 +94,21 @@ namespace MS.WebApi.Controllers.admin
             }
         }
 
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateStemeal([FromBody] Setmeal setmealDto)
+        {
+            var result = await _setmealService.UpdateSetmealAsync(setmealDto);
+            if (result)
+            {
+                return Ok(new { code = true, data = "Setmeal updated successfully", msg = "Success" });
+            }
+            else
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Failed to update setmeal" });
+            }
+        }
+
+
     }
 }

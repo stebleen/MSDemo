@@ -171,6 +171,10 @@ namespace MS.Services
             
             if(setmeal != null)
             {
+
+                
+
+                
                 _setmeal.setmealDishes=setmeal.setmealDishes.Select(f=> new SetmealDish {
                     Copies = f.Copies,
                     DishId = f.DishId,
@@ -178,6 +182,7 @@ namespace MS.Services
                     Price = f.Price,
                     SetmealId = f.SetmealId
                 }).ToList();
+                
 
                 _unitOfWork.GetRepository<Setmeal>().Update(_setmeal);
                 await _unitOfWork.SaveChangesAsync();
@@ -233,7 +238,45 @@ namespace MS.Services
             return false;
         }
 
+        public async Task<bool> UpdateSetmealAsync(Setmeal setmealDto)
+        {
+            
 
+            var setmeal = await _unitOfWork.GetRepository<Setmeal>().GetFirstOrDefaultAsync(predicate: d => d.Id == setmealDto.Id);
+
+            if (setmeal == null)
+            {
+                return false; // 如果不存在该菜品，返回false
+            }
+
+            // 更新菜品信息
+            setmeal.Name = setmealDto.Name;
+            setmeal.Price = setmeal.Price;
+            setmeal.Description = setmealDto.Description ?? setmeal.Description; // 允许部分更新
+            setmeal.Image = setmealDto.Image;
+            setmeal.CategoryId = setmealDto.CategoryId;
+            setmeal.Status = 1;
+
+
+            
+
+            setmeal.setmealDishes = setmealDto.setmealDishes.Select(f => new SetmealDish
+            {
+
+                Name = f.Name,
+                Copies = f.Copies,
+                DishId = f.DishId,
+                Price = f.Price, 
+
+            }).ToList();
+            
+            
+
+            _unitOfWork.GetRepository<Setmeal>().Update(setmeal);
+            await _unitOfWork.SaveChangesAsync();
+
+            return true;
+        }
 
     }
 }
