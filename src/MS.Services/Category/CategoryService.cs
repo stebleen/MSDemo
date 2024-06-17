@@ -67,8 +67,8 @@ namespace MS.Services
                     Name = c.Name,
                     Sort = c.Sort,
                     Status = c.Status,
-                    CreateTime = c.CreateTime.ToString("o"),
-                    UpdateTime = c.UpdateTime.ToString("o"),
+                    CreateTime = c.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    UpdateTime = c.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     CreateUser = c.CreateUser,
                     UpdateUser = c.UpdateUser
                 })
@@ -100,8 +100,8 @@ namespace MS.Services
                     Name = c.Name,
                     Sort = c.Sort,
                     Status = c.Status,
-                    CreateTime = c.CreateTime.ToString("o"),
-                    UpdateTime = c.UpdateTime.ToString("o"),
+                    CreateTime = c.CreateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                    UpdateTime = c.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss"),
                     CreateUser = c.CreateUser,
                     UpdateUser = c.UpdateUser
                 })

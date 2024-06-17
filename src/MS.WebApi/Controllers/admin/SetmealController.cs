@@ -27,5 +27,20 @@ namespace MS.WebApi.Controllers.admin
             var responseDto = await _setmealService.GetSetmealPageAsync(requestDto);
             return Ok(new { data=responseDto,code=true });
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetSetmeal([FromRoute] long id)
+        {
+            var setmealDetails = await _setmealService.GetSetmealByIdAsync(id);
+            if (setmealDetails != null)
+            {
+                return Ok(new { code = true, data = setmealDetails, msg = "" });
+            }
+            else
+            {
+                return NotFound(new { code = false, msg = "Setmeal not found" });
+            }
+        }
+
     }
 }

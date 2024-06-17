@@ -27,6 +27,28 @@ namespace MS.WebApi.Controllers.admin
             var response = await _dishService.GetDishPageAsync(requestDto);
             return Ok(new { data=response,code=true });
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetDish([FromRoute] long id)
+        {
+            var dishByIdResponse = await _dishService.GetDishByIdAsync(id);
+            if (dishByIdResponse != null)
+            {
+                return Ok(new 
+                {
+                    Code = true,
+                    Data = dishByIdResponse,
+                    Msg = ""
+                });
+            }
+            else
+            {
+                return NotFound(new { Code = false, Msg = "Dish not found" });
+            }
+        }
+
+
+
     }
     
 }

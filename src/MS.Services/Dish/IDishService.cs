@@ -1,4 +1,5 @@
 ﻿using MS.Entities;
+using MS.Entities.admin;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,7 +12,10 @@ namespace MS.Services
         Task<IEnumerable<Dish>> GetDishesByCategoryIdAsync(long categoryId);
 
         // admin
-
         Task<DishPageResponseDto> GetDishPageAsync(DishPageRequestDto requestDto);
+
+        Task<DishByIdResponse> GetDishByIdAsync(long dishId);
+
+
     }
 }

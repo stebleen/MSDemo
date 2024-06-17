@@ -15,8 +15,8 @@ namespace MS.Entities
         public int Status { get; set; } // 0 停售 1 起售    
         public string Image{ get; set; }    // 图片   
         public string Description { get; set; }  
-        public DateTime CreateTime { get; set; }
-        public DateTime UpdateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
         public long CreateUser { get; set; }
         public long UpdateUser { get; set; }
 

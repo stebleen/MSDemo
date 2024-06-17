@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MS.Common.Extensions;
+using MS.Entities.admin;
 
 namespace MS.Services
 {
@@ -78,7 +79,8 @@ namespace MS.Services
                             Status = dish.Status,
                             Description = dish.Description,
                             Image = dish.Image,
-                            UpdateTime = dish.UpdateTime.ToString("o"),
+                            // UpdateTime = dish.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                            UpdateTime = dish.UpdateTime.HasValue ? dish.UpdateTime.Value.ToString("yyyy-MM-dd HH:mm:ss") : "未知",
                         };
 
             if (!string.IsNullOrEmpty(requestDto.CategoryId))
@@ -107,6 +109,43 @@ namespace MS.Services
             {
                 Total = total,
                 Records = records
+            };
+        }
+
+
+
+        public async Task<DishByIdResponse> GetDishByIdAsync(long dishId)
+        {
+            var dish = await _unitOfWork.GetRepository<Dish>().GetFirstOrDefaultAsync(
+                predicate: d => d.Id == dishId,
+                include: source => source.Include(d => d.Flavors)
+            );
+
+            if (dish == null) return null;
+
+            var category = await _unitOfWork.GetRepository<Category>().GetFirstOrDefaultAsync(
+                predicate: c => c.Id == dish.CategoryId
+            );
+
+            return new DishByIdResponse
+            {
+                Id = dish.Id,
+                CategoryId = dish.CategoryId,
+                CategoryName = category?.Name,
+                Description = dish.Description,
+                Image = dish.Image,
+                Name = dish.Name,
+                Price = dish.Price,
+                Status = dish.Status,
+                UpdateTime = dish.UpdateTime?.ToString("yyyy-MM-dd HH:mm:ss") ?? string.Empty,
+                
+                Flavors = dish.Flavors.Select(f => new DishFlavor
+                {
+                    DishId = f.DishId,
+                    Id = f.Id,
+                    Name = f.Name,
+                    Value = f.Value
+                }).ToList()
             };
         }
 

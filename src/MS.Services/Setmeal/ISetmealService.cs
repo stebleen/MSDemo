@@ -1,4 +1,5 @@
 ﻿using MS.Entities;
+using MS.Entities.admin;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -14,5 +15,7 @@ namespace MS.Services
 
         // admin
         Task<SetmealPageResponseDto> GetSetmealPageAsync(SetmealPageRequestDto requestDto);
+
+        Task<SetmealVO> GetSetmealByIdAsync(long setmealId);
     }
 }

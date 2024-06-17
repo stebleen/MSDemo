@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MS.Common.Extensions;
+using MS.Entities.admin;
 
 namespace MS.Services
 {
@@ -80,7 +81,7 @@ namespace MS.Services
                             Status = setmeal.Status,
                             Description = setmeal.Description,
                             Image = setmeal.Image,
-                            UpdateTime = setmeal.UpdateTime.ToString("o"),
+                            UpdateTime = setmeal.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss"),
                         };
 
             // 应用筛选条件
@@ -106,6 +107,45 @@ namespace MS.Services
                 .ToListAsync();
 
             return new SetmealPageResponseDto { Total = total, Records = records };
+        }
+
+
+        public async Task<SetmealVO> GetSetmealByIdAsync(long setmealId)
+        {
+            var setmeal = await _unitOfWork.GetRepository<Setmeal>().GetFirstOrDefaultAsync(
+                predicate: sm => sm.Id == setmealId
+            );
+
+            if (setmeal == null) return null;
+
+            var category = await _unitOfWork.GetRepository<Category>().GetFirstOrDefaultAsync(
+                predicate: c => c.Id == setmeal.CategoryId
+            );
+
+            var setmealDishes = await _unitOfWork.GetRepository<SetmealDish>().GetAll()
+                .Where(smd => smd.SetmealId == setmeal.Id).ToListAsync();
+
+            return new SetmealVO
+            {
+                Id = setmeal.Id,
+                CategoryId = setmeal.CategoryId,
+                CategoryName = category?.Name,
+                Description = setmeal.Description,
+                Image = setmeal.Image,
+                Name = setmeal.Name,
+                Price = setmeal.Price,
+                Status = setmeal.Status,
+                UpdateTime = setmeal.UpdateTime.ToString("yyyy-MM-dd HH:mm:ss"),
+                SetmealDishes = setmealDishes.Select(d => new SetmealDishVo
+                {
+                    Copies = d.Copies,
+                    DishId = d.DishId,
+                    Id = d.Id,
+                    Name = d.Name,
+                    Price = d.Price,
+                    SetmealId = d.SetmealId
+                }).ToList()
+            };
         }
 
 
