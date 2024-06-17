@@ -15,6 +15,16 @@ namespace MS.Services
         Task<CategoryPageResponseDto> GetCategoryPageAsync(CategoryPageRequestDto requestDto);
 
         Task<IEnumerable<CategoryDto>> GetCategoryListAsync(CategoryListRequestDto requestDto);
+
+        Task<bool> UpdateCategoryAsync(ModifyCategoryDto categoryDto);
+
+        Task<bool> DeleteCategoryByIdAsync(long categoryId);
+
+        Task<Category> CreateCategoryAsync(Category category);
+
+        Task<Category> AddCategoryAsync(AddCategoryDto categoryDto);
+
+        Task<bool> UpdateCategoryStatusAsync(long id, int status);
     }
 }
 

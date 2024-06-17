@@ -111,5 +111,96 @@ namespace MS.Services
         }
 
 
+        public async Task<bool> UpdateCategoryAsync(ModifyCategoryDto categoryDto)
+        {
+            var category = await _unitOfWork.GetRepository<Category>().GetFirstOrDefaultAsync(predicate:c => c.Id == categoryDto.Id);
+
+            if (category == null)
+            {
+                return false;
+            }
+
+            category.Name = categoryDto.Name;
+            category.Sort = categoryDto.Sort;
+            category.Type = categoryDto.Type;
+
+            //category.UpdateTime = DateTime.UtcNow; 
+
+            _unitOfWork.GetRepository<Category>().Update(category);
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+
+        public async Task<bool> DeleteCategoryByIdAsync(long categoryId)
+        {
+            var repo = _unitOfWork.GetRepository<Category>();
+            var category = await repo.GetFirstOrDefaultAsync(predicate: a => a.Id == categoryId);
+
+            if (category != null)
+            {
+                repo.Delete(category);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+        public async Task<Category> CreateCategoryAsync(Category category)
+        {
+            if (category == null) throw new ArgumentNullException(nameof(category));
+
+            // Id 自增
+            _unitOfWork.GetRepository<Category>().Insert(category);
+            await _unitOfWork.SaveChangesAsync();
+
+
+            return category;
+        }
+
+        public async Task<Category> AddCategoryAsync(AddCategoryDto categoryDto)
+        {
+
+            // 尝试将字符串转换为整数
+            var successSort = int.TryParse(categoryDto.Sort, out var sort);
+            var successType = int.TryParse(categoryDto.Type, out var type);
+
+
+
+            var newCategory = new Category
+            {
+                Name = categoryDto.Name,
+                Sort = sort,
+                Type = type,
+                Status = 1, // 默认启用状态
+                CreateTime = DateTime.UtcNow,
+                UpdateTime = DateTime.UtcNow,
+            };
+
+            _unitOfWork.GetRepository<Category>().Insert(newCategory);
+            await _unitOfWork.SaveChangesAsync();
+            return newCategory;
+        }
+
+
+        public async Task<bool> UpdateCategoryStatusAsync(long id, int status)
+        {
+            var category = await _unitOfWork.GetRepository<Category>().GetFirstOrDefaultAsync(predicate:c => c.Id == id);
+
+            if (category != null)
+            {
+                category.Status = status; 
+                _unitOfWork.GetRepository<Category>().Update(category);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
+
     }
 }
