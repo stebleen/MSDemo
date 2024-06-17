@@ -16,6 +16,8 @@ namespace MS.Services
 
         Task<DishByIdResponse> GetDishByIdAsync(long dishId);
 
+        Task<bool> UpdateDishStatusAsync(long id, int status);
+
 
     }
 }

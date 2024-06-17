@@ -20,7 +20,7 @@ namespace MS.Services
 
         Task<bool> DeleteCategoryByIdAsync(long categoryId);
 
-        Task<Category> CreateCategoryAsync(Category category);
+        // Task<Category> CreateCategoryAsync(Category category);
 
         Task<Category> AddCategoryAsync(AddCategoryDto categoryDto);
 

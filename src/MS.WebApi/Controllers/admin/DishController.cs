@@ -47,6 +47,27 @@ namespace MS.WebApi.Controllers.admin
             }
         }
 
+        [HttpPost("status/{status}")]
+        public async Task<IActionResult> UpdateDishStatus([FromRoute] string status, [FromQuery] string id)
+        {
+            // 尝试将路径参数和查询参数转换为整数
+            if (!int.TryParse(status, out var intStatus) || !long.TryParse(id, out var longId))
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Invalid parameters." });
+            }
+
+            var success = await _dishService.UpdateDishStatusAsync(longId, intStatus);
+
+            if (success)
+            {
+                return Ok(new { code = true, data = "Dish status updated successfully", msg = "Success" });
+            }
+            else
+            {
+                return NotFound(new { code = false, data = "string", msg = "Dish not found" });
+            }
+        }
+
 
 
     }

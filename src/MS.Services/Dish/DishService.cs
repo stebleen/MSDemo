@@ -150,6 +150,22 @@ namespace MS.Services
         }
 
 
+        public async Task<bool> UpdateDishStatusAsync(long id, int status)
+        {
+            var dish = await _unitOfWork.GetRepository<Dish>().GetFirstOrDefaultAsync(predicate: c => c.Id == id);
+
+            if (dish != null)
+            {
+                dish.Status = status;
+                _unitOfWork.GetRepository<Dish>().Update(dish);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
 
     }
 }
