@@ -18,6 +18,7 @@ namespace MS.Services
 
         Task<bool> UpdateDishStatusAsync(long id, int status);
 
-
+        Task<Dish> AddDishAsync(AddDishDto dishDto);
+        Task<bool> UpdateDishAsync(AddDishDto dishDto);
     }
 }

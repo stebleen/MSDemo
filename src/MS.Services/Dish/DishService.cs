@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MS.Common.Extensions;
 using MS.Entities.admin;
+using System.Globalization;
 
 namespace MS.Services
 {
@@ -165,6 +166,101 @@ namespace MS.Services
             return false;
         }
 
+
+        public async Task<Dish> AddDishAsync(AddDishDto dishDto)
+        {
+            // 尝试将价格字符串转换为decimal。如果转换失败，则使用默认值0
+            var success = decimal.TryParse(dishDto.Price, NumberStyles.Any, CultureInfo.InvariantCulture, out var priceValue);
+            if (!success)
+            {
+                priceValue = 0M;
+            }
+            var dish = new Dish
+            {
+                CategoryId = dishDto.CategoryId,
+                Name = dishDto.Name,
+                //Price = dishDto.Price,
+                Price = priceValue,
+                Status = 1, // 默认为起售状态
+                //Image = dishDto.Image,
+                Image= "https://se-project-tongji.oss-cn-shanghai.aliyuncs.com/de5e77f2-d72a-442b-a9d5-b5301dc3bc9d.jpg",
+                Description = dishDto.Description,
+                CreateUser = 2,
+                UpdateUser = 2,
+                CreateTime = DateTime.UtcNow,
+                UpdateTime = DateTime.UtcNow,
+                /*
+                Flavors = dishDto.Flavors.Select(f => new DishFlavor
+                {
+                    Name = f.Name,
+                    Value = f.Value,
+                    DishId = dishDto.Id,
+                }).ToList()
+                */
+            };
+
+            _unitOfWork.GetRepository<Dish>().Insert(dish);
+            await _unitOfWork.SaveChangesAsync();
+
+            // 现在Dish有了Id
+            if (dishDto.Flavors != null)
+            {
+                dish.Flavors = dishDto.Flavors.Select(f => new DishFlavor
+                {
+                    Name = f.Name,
+                    Value = f.Value,
+                    DishId = dish.Id, 
+                }).ToList();
+
+                // 再次保存
+                _unitOfWork.GetRepository<Dish>().Update(dish);
+                await _unitOfWork.SaveChangesAsync();
+            }
+
+            return dish;
+        }
+
+
+        public async Task<bool> UpdateDishAsync(AddDishDto dishDto)
+        {
+            var success = decimal.TryParse(dishDto.Price, NumberStyles.Any, CultureInfo.InvariantCulture, out var priceValue);
+            if (!success)
+            {
+                priceValue = 0M;
+            }
+            /*
+            if (dishDto.Id == null)
+            {
+                return false; 
+            }
+            */
+
+            var dish = await _unitOfWork.GetRepository<Dish>().GetFirstOrDefaultAsync(predicate:d => d.Id == dishDto.Id);
+
+            if (dish == null)
+            {
+                return false; // 如果不存在该菜品，返回false
+            }
+
+            // 更新菜品信息
+            dish.Name = dishDto.Name;
+            dish.Price = priceValue;
+            dish.Description = dishDto.Description ?? dish.Description; // 允许部分更新
+            dish.Image = dishDto.Image;
+            dish.CategoryId = dishDto.CategoryId;
+            dish.Status = 1; 
+            dish.Flavors = dishDto.Flavors.Select(f => new DishFlavor
+            {
+                Name = f.Name,
+                Value = f.Value
+                
+            }).ToList();
+
+            _unitOfWork.GetRepository<Dish>().Update(dish);
+            await _unitOfWork.SaveChangesAsync();
+
+            return true;
+        }
 
 
     }

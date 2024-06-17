@@ -1593,3 +1593,6 @@ Object name: 'System.Net.Sockets.Socket'.
    at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context) 
  AsyncStateMachineBox`1.ExecutionContextCallback => <Invoke>d__9.MoveNext => DiagnosticsLoggerExtensions.UnhandledException 
 
+2024-06-17 23:57:51.4693 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-17 23:57:51.5718 | Error | MS.WebApi.Program | Test For Error 
+2024-06-17 23:57:51.6555 | Fatal | MS.WebApi.Program | Test For Fatal 

@@ -6,7 +6,7 @@ using MS.Services;
 using Renci.SshNet.Messages;
 using MS.Entities;
 using System;
-
+using MS.Entities.admin;
 
 namespace MS.WebApi.Controllers.admin
 {
@@ -65,6 +65,35 @@ namespace MS.WebApi.Controllers.admin
             else
             {
                 return NotFound(new { code = false, data = "string", msg = "Dish not found" });
+            }
+        }
+
+
+        [HttpPost]
+        public async Task<IActionResult> AddDish([FromBody] AddDishDto dishDto)
+        {
+            var createdDish = await _dishService.AddDishAsync(dishDto);
+            if (createdDish != null)
+            {
+                return Ok(new { code = true, data = "Dish added successfully", msg = "Success" });
+            }
+            else
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Failed to add dish" });
+            }
+        }
+
+        [HttpPut]
+        public async Task<IActionResult> UpdateDish([FromBody] AddDishDto dishDto)
+        {
+            var result = await _dishService.UpdateDishAsync(dishDto);
+            if (result)
+            {
+                return Ok(new { code = true, data = "Dish updated successfully", msg = "Success" });
+            }
+            else
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Failed to update dish" });
             }
         }
 
