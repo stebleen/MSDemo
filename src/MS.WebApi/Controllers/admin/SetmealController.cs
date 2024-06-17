@@ -57,5 +57,20 @@ namespace MS.WebApi.Controllers.admin
             }
         }
 
+        [HttpDelete]
+        public async Task<IActionResult> DeleteSetmeals([FromQuery] string ids)
+        {
+            var success = await _setmealService.DeleteSetmealsAsync(ids);
+
+            if (success)
+            {
+                return Ok(new { code = true, data = "Setmeals deleted successfully", msg = "Success" });
+            }
+            else
+            {
+                return BadRequest(new { code = false, data = "string", msg = "Cannot delete setmealDishes referenced by setmeals" });
+            }
+        }
+
     }
 }

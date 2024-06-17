@@ -189,6 +189,35 @@ namespace MS.Services
         }
 
 
+        public async Task<bool> DeleteSetmealsAsync(string ids)
+        {
+            var idsArray = ids.Split(',').Select(id => long.Parse(id)).ToList();
+
+            
+
+            foreach (var id in idsArray)
+            {
+                var setmeal = await _unitOfWork.GetRepository<Setmeal>().GetFirstOrDefaultAsync(predicate: d => d.Id == id);
+                if (setmeal != null)
+                {
+                    // 删除菜品相关的口味信息
+                    var setmealDish = await _unitOfWork.GetRepository<SetmealDish>().GetAll()
+                                          .Where(df => df.SetmealId == id).ToListAsync();
+                    foreach (var flavor in setmealDish)
+                    {
+                        _unitOfWork.GetRepository<SetmealDish>().Delete(flavor);
+                    }
+
+                    // 删除菜品
+                    _unitOfWork.GetRepository<Setmeal>().Delete(setmeal);
+                }
+            }
+
+            await _unitOfWork.SaveChangesAsync();
+            return true;
+        }
+
+
 
     }
 }

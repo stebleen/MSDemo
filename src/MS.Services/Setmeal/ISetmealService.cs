@@ -19,5 +19,7 @@ namespace MS.Services
         Task<SetmealVO> GetSetmealByIdAsync(long setmealId);
 
         Task<bool> CreateSetmealAsync(AddSetmealDto setmeal);
+
+        Task<bool> DeleteSetmealsAsync(string ids);
     }
 }
