@@ -28,5 +28,73 @@ namespace MS.Services
             var allItems = await _unitOfWork.GetRepository<Address>().GetAllAsync();
             return allItems.ToList();
         }
+
+
+
+        public async Task<IEnumerable<Address>> GetAddressesByCampusNameAsync(string campusName)
+        {
+            var query = _unitOfWork.GetRepository<Address>().GetAll();
+
+            if (!string.IsNullOrEmpty(campusName))
+            {
+                query = query.Where(a => a.CampusName.Contains(campusName));
+            }
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<Address> GetAddressByIdAsync(long addressId)
+        {
+            return await _unitOfWork.GetRepository<Address>().GetFirstOrDefaultAsync(predicate:a => a.Id == addressId);
+        }
+
+
+        public async Task<bool> UpdateAddressAsync(Address address)
+        {
+            var existingAddress = await _unitOfWork.GetRepository<Address>().GetFirstOrDefaultAsync(predicate:a => a.Id == address.Id);
+            if (existingAddress != null)
+            {
+                existingAddress.CampusCode = address.CampusCode;
+                existingAddress.CampusName = address.CampusName;
+                existingAddress.BuildingCode = address.BuildingCode;
+                existingAddress.BuildingName = address.BuildingName;
+
+
+                _unitOfWork.GetRepository<Address>().Update(existingAddress);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
+
+        public async Task<Address> CreateAddressAsync(Address address)
+        {
+            if (address == null) throw new ArgumentNullException(nameof(address));
+
+            // Id 自增
+            _unitOfWork.GetRepository<Address>().Insert(address);
+            await _unitOfWork.SaveChangesAsync();
+
+           
+            return address;
+        }
+
+        public async Task<bool> DeleteAddressByIdAsync(long addressId)
+        {
+            var repo = _unitOfWork.GetRepository<Address>();
+            var address = await repo.GetFirstOrDefaultAsync(predicate:a => a.Id == addressId);
+
+            if (address != null)
+            {
+                repo.Delete(address);
+                await _unitOfWork.SaveChangesAsync();
+                return true;
+            }
+
+            return false;
+        }
+
+
     }
 }

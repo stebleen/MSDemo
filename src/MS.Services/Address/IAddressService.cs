@@ -10,5 +10,18 @@ namespace MS.Services
     public interface IAddressService : IBaseService
     {
         Task<IEnumerable<Address>> GetAllAddressesAsync();
+
+
+        // admin
+        Task<IEnumerable<Address>> GetAddressesByCampusNameAsync(string campusName);
+
+        Task<Address> GetAddressByIdAsync(long addressId);
+
+        Task<bool> UpdateAddressAsync(Address address);
+
+        Task<Address> CreateAddressAsync(Address address);
+
+        Task<bool> DeleteAddressByIdAsync(long addressId);
+
     }
 }
