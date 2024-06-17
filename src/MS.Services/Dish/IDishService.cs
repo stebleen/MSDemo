@@ -9,5 +9,9 @@ namespace MS.Services
     public interface IDishService : IBaseService
     {
         Task<IEnumerable<Dish>> GetDishesByCategoryIdAsync(long categoryId);
+
+        // admin
+
+        Task<DishPageResponseDto> GetDishPageAsync(DishPageRequestDto requestDto);
     }
 }

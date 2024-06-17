@@ -10,5 +10,7 @@ namespace MS.Services
     public interface IUserService : IBaseService
     {
         Task<ExecuteResult<User>> HandleWeChatLoginAsync(string appId, string secret, string code);
+
+        Task<User> GetUserByIdAsync(long userId);
     }
 }

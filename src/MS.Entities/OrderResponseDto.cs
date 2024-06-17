@@ -9,6 +9,6 @@ namespace MS.Entities
         public long Id { get; set; }
         public decimal OrderAmount { get; set; }
         public string OrderNumber { get; set; }
-        public DateTime OrderTime { get; set; }
+        public DateTime? OrderTime { get; set; }
     }
 }

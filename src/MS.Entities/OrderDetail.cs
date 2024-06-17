@@ -10,8 +10,8 @@ namespace MS.Entities
         // 订单明细表
         public long Id { get; set; }
         public long OrderId { get; set;}   // 订单id
-        public long DishId { get; set; }   // 菜品id
-        public long SetmealId { get; set; }    // 套餐id
+        public long? DishId { get; set; }   // 菜品id
+        public long? SetmealId { get; set; }    // 套餐id
         public string Name { get; set; }    // 菜品或者套餐名字
         public string Image { get; set; }   // 菜品或者套餐名字
         public decimal Amount { get; set; } // 金额

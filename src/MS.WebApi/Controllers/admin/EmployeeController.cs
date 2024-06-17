@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 using MS.Services;
 using Renci.SshNet.Messages;
 using MS.Entities;
+using MS.Entities.admin;
 
-
-namespace MS.WebApi.Controllers
+namespace MS.WebApi.Controllers.admin
 {
     [ApiController]
     [Route("/admin/[controller]")]
@@ -27,10 +27,22 @@ namespace MS.WebApi.Controllers
 
             if (loginResponse == null)
             {
-                return Unauthorized(new { code=false,message = "Username or password is incorrect" });
+                return Unauthorized(new { code = false, message = "Username or password is incorrect" });
             }
 
-            return Ok( new{ code = true,data = loginResponse });
+            return Ok(new { code = true, data = loginResponse });
         }
+
+
+        /*
+        [HttpGet("page")]
+        public async Task<IActionResult> GetEmployeePage([FromQuery] EmployeePageRequestDto requestDto)
+        {
+            var response = await _employeeService.GetEmployeePageAsync(requestDto);
+            return Ok(new { code = true, data = response });
+        }
+        */
+
+
     }
 }

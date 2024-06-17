@@ -58,5 +58,59 @@ namespace MS.Services
 
             return dishDtos;
         }
+
+
+        public async Task<DishPageResponseDto> GetDishPageAsync(DishPageRequestDto requestDto)
+        {
+            var dishes = _unitOfWork.GetRepository<Dish>().GetAll();
+            var categories = _unitOfWork.GetRepository<Category>().GetAll();
+
+            var query = from dish in dishes
+                        join category in categories
+                        on dish.CategoryId equals category.Id
+                        select new AdminDishDto
+                        {
+                            Id = dish.Id,
+                            CategoryId = dish.CategoryId,
+                            CategoryName = category.Name,
+                            Name = dish.Name,
+                            Price = dish.Price,
+                            Status = dish.Status,
+                            Description = dish.Description,
+                            Image = dish.Image,
+                            UpdateTime = dish.UpdateTime.ToString("o"),
+                        };
+
+            if (!string.IsNullOrEmpty(requestDto.CategoryId))
+            {
+                var categoryId = long.Parse(requestDto.CategoryId);
+                query = query.Where(d => d.CategoryId == categoryId);
+            }
+            if (!string.IsNullOrEmpty(requestDto.Name))
+            {
+                query = query.Where(d => d.Name.Contains(requestDto.Name));
+            }
+            if (!string.IsNullOrEmpty(requestDto.Status))
+            {
+                var status = int.Parse(requestDto.Status);
+                query = query.Where(d => d.Status == status);
+            }
+
+            int total = await query.CountAsync();
+            List<AdminDishDto> records = await query
+                .OrderBy(d => d.Id)
+                 .Skip((requestDto.Page - 1) * requestDto.PageSize)
+                .Take(requestDto.PageSize)
+                .ToListAsync();
+
+            return new DishPageResponseDto
+            {
+                Total = total,
+                Records = records
+            };
+        }
+
+
+
     }
 }

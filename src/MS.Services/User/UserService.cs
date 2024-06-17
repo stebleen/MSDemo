@@ -43,5 +43,11 @@ namespace MS.Services
 
             return result.SetData(user);
         }
+
+
+        public async Task<User> GetUserByIdAsync(long userId)
+        {
+            return await _unitOfWork.GetRepository<User>().GetFirstOrDefaultAsync(predicate: u => u.Id == userId);
+        }
     }
 }

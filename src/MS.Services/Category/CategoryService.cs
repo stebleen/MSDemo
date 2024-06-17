@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using MS.Common.Extensions;
+using MS.Entities.admin;
 
 namespace MS.Services
 {
@@ -32,6 +33,81 @@ namespace MS.Services
             }
 
             return await categoriesQuery.ToListAsync();
+        }
+
+
+        public async Task<CategoryPageResponseDto> GetCategoryPageAsync(CategoryPageRequestDto requestDto)
+        {
+            int.TryParse(requestDto.Page, out int pageNumber);
+            int.TryParse(requestDto.PageSize, out int pageSize);
+            int.TryParse(requestDto.Type, out int type);
+
+            var query = _unitOfWork.GetRepository<Category>().GetAll();
+
+            // Apply filters
+            if (!string.IsNullOrEmpty(requestDto.Name))
+            {
+                query = query.Where(c => c.Name.Contains(requestDto.Name));
+            }
+            if (!string.IsNullOrEmpty(requestDto.Type))
+            {
+                query = query.Where(c => c.Type == type);
+            }
+
+            var total = await query.CountAsync();
+
+            var records = await query
+                .OrderBy(c => c.Id)
+                .Skip((pageNumber - 1) * pageSize)
+                .Take(pageSize)
+                .Select(c => new CategoryDto
+                {
+                    Id = c.Id,
+                    Type = c.Type,
+                    Name = c.Name,
+                    Sort = c.Sort,
+                    Status = c.Status,
+                    CreateTime = c.CreateTime.ToString("o"),
+                    UpdateTime = c.UpdateTime.ToString("o"),
+                    CreateUser = c.CreateUser,
+                    UpdateUser = c.UpdateUser
+                })
+                .ToListAsync();
+
+            return new CategoryPageResponseDto
+            {
+                Total = total,
+                Records = records
+            };
+        }
+
+
+        public async Task<IEnumerable<CategoryDto>> GetCategoryListAsync(CategoryListRequestDto requestDto)
+        {
+            int type = 0;
+            if (!string.IsNullOrEmpty(requestDto.Type))
+            {
+                int.TryParse(requestDto.Type, out type);
+            }
+
+            var categories = await _unitOfWork.GetRepository<Category>()
+                .GetAll()
+                .Where(c => c.Type == type || type == 0)
+                .Select(c => new CategoryDto
+                {
+                    Id = c.Id,
+                    Type = c.Type,
+                    Name = c.Name,
+                    Sort = c.Sort,
+                    Status = c.Status,
+                    CreateTime = c.CreateTime.ToString("o"),
+                    UpdateTime = c.UpdateTime.ToString("o"),
+                    CreateUser = c.CreateUser,
+                    UpdateUser = c.UpdateUser
+                })
+                .ToListAsync();
+
+            return categories;
         }
 
 
