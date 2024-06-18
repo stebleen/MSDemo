@@ -18,6 +18,7 @@ using MS.Models.Automapper;
 using MS.Services;
 using Autofac;
 using MS.Models.ViewModel;
+using System.Net.WebSockets;
 
 namespace MS.WebApi
 {
@@ -92,6 +93,10 @@ namespace MS.WebApi
             services.Configure<AliOssOptions>(Configuration.GetSection("AliOss"));
             services.AddScoped<IAliOssService, AliOssService>();
 
+            // 注册WebSocketManager服务 
+            services.AddSingleton<WebSocketManager>();
+            services.AddSingleton<WebSocketServerMiddleware>();
+
 
         }
 
@@ -104,10 +109,37 @@ namespace MS.WebApi
             }
             //else
             //{
-             //   app.UseExceptionHandler("/Error");
+            //   app.UseExceptionHandler("/Error");
             //}
 
             //app.UseStaticFiles();
+
+            
+            /*
+            app.UseWebSockets();
+            app.UseWebSocketServer();
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path == "/ws") // 检查请求是否为WebSocket请求路径
+                {
+                    if (context.WebSockets.IsWebSocketRequest)
+                    {
+                        // 当请求是 WebSocket 请求时，处理 WebSocket 连接
+                        var webSocketManager = app.ApplicationServices.GetService<WebSocketManager>();
+                        await webSocketManager.HandleWebSocketAsync(context); // 直接传递 context
+                    }
+                    else
+                    {
+                        // 如果不是 WebSocket 请求，将请求传递给下一个中间件
+                        await next();
+                    }
+                }
+                else
+                {
+                    await next();
+                }
+            });
+            */
 
             app.UseRouting();
 
@@ -115,10 +147,13 @@ namespace MS.WebApi
 
             app.UseAuthorization();
 
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
             });
+          
+
         }
 
 

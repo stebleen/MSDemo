@@ -99,7 +99,6 @@ D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\bin\Debug\netcoreapp3.1\System
 D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\bin\Debug\netcoreapp3.1\Autofac.dll
 D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\bin\Debug\netcoreapp3.1\Autofac.Extensions.DependencyInjection.dll
 D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\bin\Debug\netcoreapp3.1\Aliyun.OSS.Core.dll
-D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\bin\Debug\netcoreapp3.1\MS.WebApi.StaticWebAssets.xml
 D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\MS.WebApi.StaticWebAssets.Pack.cache
 D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.MS.WebApi.Microsoft.AspNetCore.StaticWebAssets.props
 D:\program\dotnet\code\final\MSDemo\src\MS.WebApi\obj\Debug\netcoreapp3.1\staticwebassets\msbuild.build.MS.WebApi.props
