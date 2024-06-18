@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "1OvMR+fzdwEQQ6ODhiauAwqz8D1/ofVcNG2aqkYXcRZnpHDVcTq8Hl4QiG/Io6MoLs9R+Y7gVynSZ2vJ5eOanw==",
+  "dgSpecHash": "oWU4Z1UsiW/LKZyGa5sPU5kfQa8Q4G+swdpchas9FpRswnx/bO9dn2PSf619XZ3yR2ioaZ+Bqv+Moxlcs0LLJQ==",
   "success": true,
   "projectFilePath": "D:\\program\\dotnet\\code\\final\\MSDemo\\src\\MS.WebCore\\MS.WebCore.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\深归\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.14.1\\aliyun.oss.sdk.netcore.2.14.1.nupkg.sha512",
     "C:\\Users\\深归\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\3.1.1\\microsoft.aspnetcore.cryptography.internal.3.1.1.nupkg.sha512",
     "C:\\Users\\深归\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\3.1.1\\microsoft.aspnetcore.cryptography.keyderivation.3.1.1.nupkg.sha512",
     "C:\\Users\\深归\\.nuget\\packages\\microsoft.extensions.configuration\\3.0.0\\microsoft.extensions.configuration.3.0.0.nupkg.sha512",

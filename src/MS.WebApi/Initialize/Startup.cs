@@ -17,7 +17,7 @@ using Pomelo.EntityFrameworkCore.MySql.Storage;
 using MS.Models.Automapper;
 using MS.Services;
 using Autofac;
-
+using MS.Models.ViewModel;
 
 namespace MS.WebApi
 {
@@ -87,7 +87,11 @@ namespace MS.WebApi
             services.AddScoped<IBaseService, BaseService>();
             services.AddScoped<IRoleService, RoleService>();
             */
-       
+
+            // ≈‰÷√∞¢¿Ô‘∆OSS
+            services.Configure<AliOssOptions>(Configuration.GetSection("AliOss"));
+            services.AddScoped<IAliOssService, AliOssService>();
+
 
         }
 

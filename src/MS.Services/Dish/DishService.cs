@@ -182,8 +182,8 @@ namespace MS.Services
                 //Price = dishDto.Price,
                 Price = priceValue,
                 Status = 1, // 默认为起售状态
-                //Image = dishDto.Image,
-                Image= "https://se-project-tongji.oss-cn-shanghai.aliyuncs.com/de5e77f2-d72a-442b-a9d5-b5301dc3bc9d.jpg",
+                Image = dishDto.Image,
+                //Image= "https://se-project-tongji.oss-cn-shanghai.aliyuncs.com/de5e77f2-d72a-442b-a9d5-b5301dc3bc9d.jpg",
                 Description = dishDto.Description,
                 CreateUser = 2,
                 UpdateUser = 2,

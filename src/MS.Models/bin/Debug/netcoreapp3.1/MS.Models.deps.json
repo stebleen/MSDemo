@@ -17,6 +17,14 @@
           "MS.Models.dll": {}
         }
       },
+      "Aliyun.OSS.SDK.NetCore/2.14.1": {
+        "runtime": {
+          "lib/netstandard2.0/Aliyun.OSS.Core.dll": {
+            "assemblyVersion": "2.14.1.0",
+            "fileVersion": "2.14.1.0"
+          }
+        }
+      },
       "AutoMapper/9.0.0": {
         "dependencies": {
           "Microsoft.CSharp": "4.5.0",
@@ -393,6 +401,7 @@
       },
       "MS.Common/1.0.0": {
         "dependencies": {
+          "Aliyun.OSS.SDK.NetCore": "2.14.1",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "3.1.1",
           "Newtonsoft.Json": "12.0.3"
         },
@@ -445,6 +454,13 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "Aliyun.OSS.SDK.NetCore/2.14.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-UOI6I8Uw8A7pFh2GS6CSpJuhmcHH45k6asex8SRnZed2WWBXeGEaBFyv3HsMJNp+B6gPqyN079sQHWenGd3Y7g==",
+      "path": "aliyun.oss.sdk.netcore/2.14.1",
+      "hashPath": "aliyun.oss.sdk.netcore.2.14.1.nupkg.sha512"
     },
     "AutoMapper/9.0.0": {
       "type": "package",

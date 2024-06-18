@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "Z/dsZaECqSnF1HQUpBUHERDpKtzx51XZNeH+es+Hc7iuMf1KaJDv1yKhLyV608mzdoasQcnyfUCwnCXgfc5OHg==",
+  "dgSpecHash": "qBHzySsBPJMzVlApsjxAFE2eJhIEl9LGBHIjGaDjQbAT6ExO/kXAEtXpLAX/4WAwFC0IIAeSx/X6A4VC1SdEuQ==",
   "success": true,
   "projectFilePath": "D:\\program\\dotnet\\code\\final\\MSDemo\\src\\MS.WebApi\\MS.WebApi.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\深归\\.nuget\\packages\\aliyun.oss.sdk.netcore\\2.14.1\\aliyun.oss.sdk.netcore.2.14.1.nupkg.sha512",
     "C:\\Users\\深归\\.nuget\\packages\\autofac\\4.9.1\\autofac.4.9.1.nupkg.sha512",
     "C:\\Users\\深归\\.nuget\\packages\\autofac.extensions.dependencyinjection\\5.0.1\\autofac.extensions.dependencyinjection.5.0.1.nupkg.sha512",
     "C:\\Users\\深归\\.nuget\\packages\\automapper\\9.0.0\\automapper.9.0.0.nupkg.sha512",

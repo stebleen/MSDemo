@@ -2,6 +2,19 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "Aliyun.OSS.SDK.NetCore/2.14.1": {
+        "type": "package",
+        "compile": {
+          "lib/netstandard2.0/Aliyun.OSS.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        },
+        "runtime": {
+          "lib/netstandard2.0/Aliyun.OSS.Core.dll": {
+            "related": ".pdb;.xml"
+          }
+        }
+      },
       "Autofac/4.9.1": {
         "type": "package",
         "compile": {
@@ -2298,6 +2311,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v3.1",
         "dependencies": {
+          "Aliyun.OSS.SDK.NetCore": "2.14.1",
           "Microsoft.AspNetCore.Cryptography.KeyDerivation": "3.1.1",
           "Newtonsoft.Json": "12.0.3"
         },
@@ -2413,6 +2427,20 @@
     }
   },
   "libraries": {
+    "Aliyun.OSS.SDK.NetCore/2.14.1": {
+      "sha512": "UOI6I8Uw8A7pFh2GS6CSpJuhmcHH45k6asex8SRnZed2WWBXeGEaBFyv3HsMJNp+B6gPqyN079sQHWenGd3Y7g==",
+      "type": "package",
+      "path": "aliyun.oss.sdk.netcore/2.14.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "aliyun.oss.sdk.netcore.2.14.1.nupkg.sha512",
+        "aliyun.oss.sdk.netcore.nuspec",
+        "lib/netstandard2.0/Aliyun.OSS.Core.dll",
+        "lib/netstandard2.0/Aliyun.OSS.Core.pdb",
+        "lib/netstandard2.0/Aliyun.OSS.Core.xml"
+      ]
+    },
     "Autofac/4.9.1": {
       "sha512": "L92DMQxpy4Xw3IypXxL8Z4NHt+qIkB1e0NB2OJ9u105Xp5sVsZSJ04YtYyubmM3KG8aC+WpyBhN14XcjPx5gLg==",
       "type": "package",
@@ -7254,6 +7282,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
+      "Aliyun.OSS.SDK.NetCore >= 2.14.1",
       "Autofac.Extensions.DependencyInjection >= 5.0.1",
       "MS.Common >= 1.0.0",
       "MS.Component.Aop >= 1.0.0",
@@ -7342,6 +7371,10 @@
       "netcoreapp3.1": {
         "targetAlias": "netcoreapp3.1",
         "dependencies": {
+          "Aliyun.OSS.SDK.NetCore": {
+            "target": "Package",
+            "version": "[2.14.1, )"
+          },
           "Autofac.Extensions.DependencyInjection": {
             "target": "Package",
             "version": "[5.0.1, )"
