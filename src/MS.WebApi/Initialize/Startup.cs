@@ -58,6 +58,7 @@ namespace MS.WebApi
             builder.RegisterType<AddressService>().As<IAddressService>().InstancePerLifetimeScope();
             builder.RegisterType<OrderService>().As<IOrderService>().InstancePerLifetimeScope();
             builder.RegisterType<EmployeeService>().As<IEmployeeService>().InstancePerLifetimeScope();
+            builder.RegisterType<BusinessDataService>().As<IBusinessDataService>().InstancePerLifetimeScope();
         }
 
 
@@ -93,9 +94,11 @@ namespace MS.WebApi
             services.Configure<AliOssOptions>(Configuration.GetSection("AliOss"));
             services.AddScoped<IAliOssService, AliOssService>();
 
+            /*
             // ×¢²áWebSocketManager·þÎñ 
             services.AddSingleton<WebSocketManager>();
             services.AddSingleton<WebSocketServerMiddleware>();
+            */
 
 
         }

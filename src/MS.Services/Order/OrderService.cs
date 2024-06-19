@@ -25,13 +25,13 @@ namespace MS.Services
         private readonly IShoppingCartService _shoppingCartService;
         private readonly IAddressBookService _addressBookService;
         private readonly IUserService _userService;
-        private readonly WebSocketServerMiddleware _webSocketManager;
+        //private readonly WebSocketServerMiddleware _webSocketManager;
 
         public OrderService(IUnitOfWork<MSDbContext> unitOfWork,
                         IShoppingCartService shoppingCartService,
                         IAddressBookService addressBookService,
                         IUserService userService,
-                        WebSocketServerMiddleware webSocketManager,
+                        
                         IMapper mapper, IdWorker idWorker)
         : base(unitOfWork, mapper, idWorker)
         {
@@ -39,7 +39,7 @@ namespace MS.Services
             _shoppingCartService = shoppingCartService;
             _addressBookService = addressBookService;
             _userService = userService;
-            _webSocketManager = webSocketManager; // 注入WebSocketManager
+            //_webSocketManager = webSocketManager; // 注入WebSocketManager
         }
 
         public async Task<OrderResponseDto> SubmitOrderAsync(Orders submitOrderDto, long userId)
@@ -134,19 +134,6 @@ namespace MS.Services
             // 清空用户购物车
             await _shoppingCartService.CleanCartAsync(userId);
 
-            /*
-
-            // 创建订单成功后发送WebSocket消息
-            var message = new
-            {
-                type = 1, // 表示这是一个新订单通知
-                orderId = newOrder.Id,
-                content = "您有一个新订单，请及时处理！订单号：" + newOrder.Number
-            };
-
-            string jsonMessage = JsonSerializer.Serialize(message);
-            await WebSocketServerMiddleware.SendMessageToAllAsync(jsonMessage); // 调用WebSocket服务发送消息
-            */
 
 
 
