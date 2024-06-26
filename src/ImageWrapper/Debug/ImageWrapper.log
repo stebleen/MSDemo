@@ -1,0 +1,15 @@
+﻿  ImageCompressor.cpp
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(99,81): error C3699: “*”: 不能在类型“IServiceProvider”上使用此间接寻址
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(99,81): message : 编译器将“*”替换为“^”以继续进行分析
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(106,9): error C2371: “IServiceProvider”: 重定义；不同的基类型
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(52,36): message : 参见“IServiceProvider”的声明
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(123,47): error C3699: “*”: 不能在类型“IServiceProvider”上使用此间接寻址
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(123,47): message : 编译器将“*”替换为“^”以继续进行分析
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(251,28): error C3699: “*”: 不能在类型“IServiceProvider”上使用此间接寻址
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(251,28): message : 编译器将“*”替换为“^”以继续进行分析
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(261,38): error C3699: “*”: 不能在类型“IServiceProvider”上使用此间接寻址
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\servprov.h(261,38): message : 编译器将“*”替换为“^”以继续进行分析
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\urlmon.h(7156,70): error C3699: “*”: 不能在类型“IServiceProvider”上使用此间接寻址
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\urlmon.h(7156,70): message : 编译器将“*”替换为“^”以继续进行分析
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\urlmon.h(7158,66): error C3699: “*”: 不能在类型“IServiceProvider”上使用此间接寻址
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22000.0\um\urlmon.h(7158,66): message : 编译器将“*”替换为“^”以继续进行分析

@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "FK2pAB3t/BqqwrwK/j78rA5TLvwkqO+zBaeJqoNHPkppdoIie/breOhGEVZlPktakOOmOIVpLPd6+nEta+15tQ==",
+  "success": true,
+  "projectFilePath": "D:\\program\\dotnet\\code\\final\\MSDemo\\src\\ImageWrapper\\ImageWrapper.vcxproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\深归\\.nuget\\packages\\microsoft.windows.sdk.net.ref\\10.0.22000.28\\microsoft.windows.sdk.net.ref.10.0.22000.28.nupkg.sha512"
+  ],
+  "logs": []
+}

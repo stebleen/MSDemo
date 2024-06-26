@@ -22,7 +22,7 @@ namespace MS.Services
 
 
 
-        [DllImport("BusinessStatsLib.dll", CallingConvention = CallingConvention.Cdecl)]
+        [DllImport("D:\\program\\dotnet\\code\\final\\MSDemo\\src\\CalculateDll\\CalculateDll.dll", CallingConvention = CallingConvention.Cdecl)]
         public static extern double CalculateOrderCompletionRate(int validOrdersCount, int totalOrdersCount);
 
         public async Task<BusinessDataVO> GetTodayBusinessDataAsync()
@@ -45,7 +45,9 @@ namespace MS.Services
             var totalOrderCount = totalOrders.Count();
 
             var orderCompletionRate = 0.0;
+            //orderCompletionRate = CalculateOrderCompletionRate(validOrderCount, totalOrderCount);
 
+            
             try
             {
                 orderCompletionRate = CalculateOrderCompletionRate(validOrderCount, totalOrderCount);
@@ -60,6 +62,7 @@ namespace MS.Services
                 else
                     orderCompletionRate = validOrderCount / totalOrderCount;
             }
+            
             //var orderCompletionRate = CalculateOrderCompletionRate(validOrderCount, totalOrderCount);
             var unitPrice = validOrderCount > 0 ? turnover / validOrderCount : 0;
 

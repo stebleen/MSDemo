@@ -90,7 +90,9 @@ namespace MS.Services
                 Amount = submitOrderDto.Amount,
                 DeliveryStatus = submitOrderDto.DeliveryStatus,
                 // EstimatedDeliveryTime = submitOrderDto.EstimatedDeliveryTime,
+                EstimatedDeliveryTime = DateTime.Now.Date.AddDays(1).AddHours(7).AddMinutes(30),
                 OrderTime = DateTime.Now,
+                CheckoutTime= DateTime.Now,
                 PayMethod = submitOrderDto.PayMethod,
                 PayStatus = 1, // 1为已支付状态
                 Remark = submitOrderDto.Remark,
@@ -418,6 +420,7 @@ namespace MS.Services
             if (order != null)
             {
                 order.Status = 5; // 将订单状态改为5（已完成）
+                order.DeliveryTime = DateTime.Now;
                 repo.Update(order);
                 await _unitOfWork.SaveChangesAsync();
                 return true;
