@@ -1,0 +1,10 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\bin\Release\netcoreapp3.1\MS.Entities.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\bin\Release\netcoreapp3.1\MS.Entities.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\bin\Release\netcoreapp3.1\MS.Entities.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Entities\obj\Release\netcoreapp3.1\MS.Entities.pdb

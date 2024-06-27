@@ -1,0 +1,13 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\bin\Release\netcoreapp3.1\MS.WebCore.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\bin\Release\netcoreapp3.1\MS.WebCore.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\bin\Release\netcoreapp3.1\MS.WebCore.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\bin\Release\netcoreapp3.1\MS.Common.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\bin\Release\netcoreapp3.1\MS.Common.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.csproj.CopyComplete
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.WebCore\obj\Release\netcoreapp3.1\MS.WebCore.pdb

@@ -1,0 +1,10 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\bin\Release\netcoreapp3.1\MS.UnitOfWork.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\bin\Release\netcoreapp3.1\MS.UnitOfWork.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\bin\Release\netcoreapp3.1\MS.UnitOfWork.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.UnitOfWork\obj\Release\netcoreapp3.1\MS.UnitOfWork.pdb

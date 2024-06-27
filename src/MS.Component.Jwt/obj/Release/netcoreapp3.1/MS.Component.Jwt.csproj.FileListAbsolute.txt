@@ -1,0 +1,10 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\bin\Release\netcoreapp3.1\MS.Component.Jwt.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\bin\Release\netcoreapp3.1\MS.Component.Jwt.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\bin\Release\netcoreapp3.1\MS.Component.Jwt.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.Component.Jwt\obj\Release\netcoreapp3.1\MS.Component.Jwt.pdb

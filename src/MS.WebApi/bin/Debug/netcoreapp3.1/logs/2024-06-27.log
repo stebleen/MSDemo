@@ -1,0 +1,6 @@
+2024-06-27 16:21:16.5028 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-27 16:21:16.5639 | Error | MS.WebApi.Program | Test For Error 
+2024-06-27 16:21:16.6012 | Fatal | MS.WebApi.Program | Test For Fatal 
+2024-06-27 16:27:55.2063 | Warn | MS.WebApi.Program | Test For Warn 
+2024-06-27 16:27:55.2694 | Error | MS.WebApi.Program | Test For Error 
+2024-06-27 16:27:55.3025 | Fatal | MS.WebApi.Program | Test For Fatal 

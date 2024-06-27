@@ -1,0 +1,15 @@
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.DbContexts.deps.json
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.DbContexts.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.DbContexts.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.Entities.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.UnitOfWork.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.Entities.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\bin\Release\netcoreapp3.1\MS.UnitOfWork.pdb
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.csproj.AssemblyReference.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.GeneratedMSBuildEditorConfig.editorconfig
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.AssemblyInfoInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.AssemblyInfo.cs
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.csproj.CoreCompileInputs.cache
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.csproj.CopyComplete
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.dll
+D:\program\dotnet\code\final\MSDemo\src\MS.DbContexts\obj\Release\netcoreapp3.1\MS.DbContexts.pdb
